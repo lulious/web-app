@@ -1,4 +1,6 @@
 import dva from 'dva';
+import 'react-dom';
+import 'babel-polyfill';
 import './index.css';
 
 // 1. Initialize
