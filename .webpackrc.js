@@ -1,4 +1,5 @@
-{
+const path = require('path');
+export default{
   "entry": "src/index.js",
   "publicPath": "/",
   "extraBabelPlugins": [
@@ -13,5 +14,9 @@
   },
   "externals": {},
   "ignoreMomentLocale": true,
-  "hash": true
+  "hash": true,
+  "alias": {
+    "components": path.resolve(__dirname, "./src/components"),
+    "img": path.resolve(__dirname, "./public/img")
+  }
 }

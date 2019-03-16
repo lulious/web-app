@@ -3,8 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Dva Demo</title>
+  <title>飞象章鱼</title>
   <link rel="stylesheet" href="index.css" />
+  <script>
+    (function(){
+      let innerWidth = window.innerWidth;
+      let radio = innerWidth/1920;
+      let html = document.getElementsByTagName('html')[0];
+      html.style.fontSize = 100*radio+'px';
+      console.log(html.style.fontSize);
+    })()
+  </script>
 </head>
 <body>
 
