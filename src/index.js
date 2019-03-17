@@ -2,6 +2,7 @@ import dva from 'dva';
 import 'react-dom';
 import 'babel-polyfill';
 import './index.css';
+import LessonModal from './models/lesson';
 
 // 1. Initialize
 const app = dva();
@@ -10,7 +11,7 @@ const app = dva();
 // app.use({});
 
 // 3. Model
-// app.model(require('./models/example').default);
+app.model(LessonModal);
 
 // 4. Router
 app.router(require('./router').default);

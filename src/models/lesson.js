@@ -1,9 +1,12 @@
 
 export default {
 
-  namespace: 'example',
+  namespace: 'lesson',
 
-  state: {},
+  state: {
+    activeItem: '',
+    list: []
+  },
 
   subscriptions: {
     setup({ dispatch, history }) {  // eslint-disable-line
@@ -17,6 +20,9 @@ export default {
   },
 
   reducers: {
+    set(state, {payload}){
+      return {...state, ...payload};
+    },
     save(state, action) {
       return { ...state, ...action.payload };
     },

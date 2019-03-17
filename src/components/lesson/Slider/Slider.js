@@ -1,4 +1,5 @@
 import React from 'react';
+import {connect} from 'dva';
 import PersonIcon from 'img/person-icon.png';
 import ActivePerson from 'img/active-person.png';
 import BusIcon from 'img/bus-icon.png';
@@ -18,19 +19,13 @@ const getCls = (type, active) => {
 }
 
 class Slider extends React.Component{
-  constructor(props){
-    super(props);
-    this.state = {
-      active: ''
-    }
-  }
+ 
   handleClick = (type) => {
-    this.setState({
-      active : type
-    });
+    this.props.setActiveItem({activeItem: type});
   }
+  
   render(){
-    const active = this.state.active;
+    const active = this.props.activeItem;
     const handleClick = this.handleClick;
     return (
       <div className={styles.slider}>
@@ -74,4 +69,18 @@ class Slider extends React.Component{
     );
   }
 }
-export default Slider;
+export default connect(
+  ({lesson}) => {
+    return {...lesson}
+  },
+  dispatch => {
+    return {
+       setActiveItem: (payload) => {
+        return dispatch({
+          type: 'lesson/set',
+          payload
+        })
+      }
+    }
+  }
+)(Slider);
