@@ -2,6 +2,17 @@
   width: 8rem;
   height: 100%;
   padding: 0.11rem 0;
+  .icon-container{
+    width: 2.98rem;
+    height: 0.55rem;
+    background-image: url('img/item-2.png'); 
+    background-size: 100% 100%;
+    color: #fff;
+    font-size: 0.22rem;
+    margin: 0.02rem;
+    padding-left: 0.69rem;
+    padding-top: 0.05rem;
+  }
   .top{
     height: 49%;
     box-sizing: border-box;
@@ -9,21 +20,32 @@
     border-radius: 0.2rem;  
     margin-bottom: 0.11rem;
     padding: 0.4rem 0.43rem;
-    .icon-container{
-      width: 2.98rem;
-      height: 0.55rem;
-      background-image: url('img/item-2.png'); 
-      background-size: 100% 100%;
-      color: #fff;
-      font-size: 0.22rem;
-      margin: 0.02rem;
-      padding-left: 0.69rem;
-      padding-top: 0.05rem;
-    }
   }
   .bottom{
     height: 50%;
     background-color: #e9f2ca;
     border-radius: 0.2rem;  
+    padding: 0.4rem 0.43rem;
+    position: relative;
+    .result{
+      background-image: url('img/result-item.png'); 
+      background-size: 100% 100%;
+    }
+    .play{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 1.09rem;
+      height: 1.09rem;
+      background-color: #97c203;
+      border-radius: 50%;
+      position: absolute;
+      right: 0.2rem;
+      bottom: 0.18rem;
+      .play-icon{
+        width: 0.5rem;
+      }
+    }
   }
+  
 }

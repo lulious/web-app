@@ -6,15 +6,17 @@ import Result from 'components/lesson/Result/Result';
 import styles from './LessonView.less';
 
 const LessonView = (props) => {
+  
   return (
-    <div className={styles.container}>
-      <Header />
-      <div className={styles.content}>
-        <Slider />
-        <Content />
-        <Result />
-      </div> 
-    </div>
+      <div className={styles.container}>
+        <Header />
+        <div className={styles.content}>
+          <Slider />
+          <Content />
+          <Result />
+        </div> 
+      </div>
+    
   )
 }
 export default LessonView
