@@ -4,7 +4,7 @@ export default {
   namespace: 'lesson',
 
   state: {
-    activeItem: 'data',
+    activeItem: 'action',
     list: []
   },
 

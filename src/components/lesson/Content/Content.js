@@ -1,12 +1,11 @@
 import React from 'react';
 import {connect} from 'dva';
+import uuid from 'uuid/v4';
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
 import styles from './Content.less';
 import { getColorByType }  from 'utils/util';
 import { getList } from 'services/query';
 import PlayIcon from 'img/play-icon.png';
-
-
 
 class Content extends React.Component{
   constructor(props){
@@ -42,36 +41,52 @@ class Content extends React.Component{
     }
   
   }
+  
+  reoder = (list, startIndex, endIndex) => {
+    const result = Array.from(list);
+    const [removed] = result.splice(startIndex, 1);
+    result.splice(endIndex, 0, removed);
+    return result;
+  }
+
   onDragEnd = (res) => {
     console.log(res);
+    const { list,result, bgColor} = this.state;
     const { destination, source } = res;
     if(!destination){
       return ;
     }
-    if(destination.droppableId === 'result' && source.droppableId === 'droppable'){
-      const { result, list, bgColor} = this.state;
-      result.push({
-        content: list[source.index],
-        bgColor: bgColor
-      });
+
+    // 一个Droppable里面拖拽排序
+    if(source.droppableId === 'result' && destination.droppableId === 'result'){
+      const reorderRes =  this.reoder(result, source.index, destination.index);
+      console.log(reorderRes)
       this.setState({
-        result: result
+        result: reorderRes
       })
     }
+
+    // 两个Droppable之间拖拽
+    if(source.droppableId === 'droppable' && destination.droppableId === 'result'){
+      const item = list[source.index];
+      result.splice(destination.index, 0 ,{ content: item, id: uuid(), bgColor: bgColor});
+      this.setState({
+        result: result
+      });
+    }
+    
   };
   
   render(){
     console.log(this.props,this.state);
     const { bgColor, list, result } = this.state;
-    const style = {
-      backgroundColor: bgColor
-    };
+
     return (
       <DragDropContext onDragEnd = {this.onDragEnd}>
         
-  
+
       <div className={styles.content}>
-      <Droppable droppableId="droppable">
+      <Droppable droppableId="droppable" isDropDisabled={true}>
         {(provided, snapshot) => (
           <div 
             ref={provided.innerRef}
@@ -79,23 +94,31 @@ class Content extends React.Component{
             {...provided.droppableProps}
           >
            {list.map((item, index) => (
-            <Draggable key={item} draggableId={`droppable-${index}`} index={index}  >
+            <Draggable key={index} draggableId={`droppable-${index}`} index={index}  >
               {(provided, snapshot) => (
-                <div
-                  ref={provided.innerRef}
-                  {...provided.draggableProps}
-                  {...provided.dragHandleProps}
-                >
-                  <div className={styles['icon-container']} style={style} >
-                    {item}
+                <React.Fragment>
+                  <div
+                    ref={provided.innerRef}
+                    {...provided.draggableProps}
+                    {...provided.dragHandleProps}
+                  >
+                    <div className={styles['icon-container']} style={{backgroundColor: bgColor}} >
+                      {item}
+                    </div>
                   </div>
-                </div>
+                  {snapshot.isDragging && (
+                    <div className={styles['icon-container']} style={{backgroundColor: bgColor}} >
+                      {item}
+                    </div>
+                  )}
+                </React.Fragment>
               )}
             </Draggable>
            ))}
-  
+           {provided.placeholder}
           </div>
         )} 
+        
       </Droppable>
       
       <Droppable droppableId="result">
@@ -106,7 +129,7 @@ class Content extends React.Component{
             {...provided.droppableProps}
           >
            {result.map((item, index) => (
-            <Draggable key={item.content} draggableId={`result-${index}`} index={index}  >
+            <Draggable key={item.id} draggableId={item.id} index={index}  >
               {(provided, snapshot) => (
                 <div
                   ref={provided.innerRef}
@@ -120,7 +143,7 @@ class Content extends React.Component{
               )}
             </Draggable>
            ))}
-
+            {provided.placeholder}
             <div className={styles.play}>
               <img className={styles['play-icon']} src={PlayIcon} alt="" />
             </div>
