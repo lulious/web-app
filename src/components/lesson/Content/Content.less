@@ -2,6 +2,7 @@
   width: 8rem;
   height: 100%;
   padding: 0.11rem 0;
+  position: relative;
   .icon-container{
     width: 2.98rem;
     height: 0.55rem;
@@ -12,6 +13,15 @@
     margin: 0.02rem;
     padding-left: 0.69rem;
     padding-top: 0.05rem;
+  }
+  .icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1.09rem;
+    height: 1.09rem;
+    border-radius: 50%;
+    position: absolute;
   }
   .top{
     height: 49%;
@@ -31,15 +41,9 @@
       background-image: url('img/result-item.png'); 
       background-size: 100% 100%;
     }
+    
     .play{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 1.09rem;
-      height: 1.09rem;
       background-color: #97c203;
-      border-radius: 50%;
-      position: absolute;
       right: 0.2rem;
       bottom: 0.18rem;
       .play-icon{
@@ -48,4 +52,12 @@
     }
   }
   
+  .delete{
+    background-color: #ff860b;
+    bottom: 0.28rem;
+    right: 1.8rem;
+    .delete-icon{
+      width: 0.65rem;
+    }
+  }
 }

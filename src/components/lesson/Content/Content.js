@@ -6,6 +6,7 @@ import styles from './Content.less';
 import { getColorByType }  from 'utils/util';
 import { getList } from 'services/query';
 import PlayIcon from 'img/play-icon.png';
+import DeleteIcon from  'img/delete-icon.png';
 
 class Content extends React.Component{
   constructor(props){
@@ -60,7 +61,7 @@ class Content extends React.Component{
     // 一个Droppable里面拖拽排序
     if(source.droppableId === 'result' && destination.droppableId === 'result'){
       const reorderRes =  this.reoder(result, source.index, destination.index);
-      console.log(reorderRes)
+
       this.setState({
         result: reorderRes
       })
@@ -144,13 +145,18 @@ class Content extends React.Component{
             </Draggable>
            ))}
             {provided.placeholder}
-            <div className={styles.play}>
+            {/* <div className={`${styles.icon} ${styles.delete}`}>
+              <img className={styles['delete-icon']} src={DeleteIcon} alt="" />
+            </div> */}
+            <div className={`${styles.icon} ${styles.play}`}>
               <img className={styles['play-icon']} src={PlayIcon} alt="" />
             </div>
           </div>
         )}
-        
       </Droppable>
+       <div className={`${styles.icon} ${styles.delete}`}>
+          <img className={styles['delete-icon']} src={DeleteIcon} alt="" />
+        </div>
       </div>
       </DragDropContext>
     )
