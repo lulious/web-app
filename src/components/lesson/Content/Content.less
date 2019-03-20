@@ -2,6 +2,7 @@
   width: 8rem;
   height: 100%;
   padding: 0.11rem 0;
+  position: relative;
   .icon-container{
     width: 2.98rem;
     height: 0.55rem;
@@ -36,34 +37,38 @@
     padding: 0.4rem 0.43rem 0;
 
     .drop-area{
-      height: 70%;
+      height: 75%;
     }
 
     .delete-area{
-      // height: 30%;
+      width: 70%;
+      height: 1rem;
       display: flex;
-      justify-content: flex-end;
+      justify-content: space-between;
       align-items: center;
-      margin-top: 0rem;
     }
     .result{
       background-image: url('img/result-item.png'); 
       background-size: 100% 100%;
     }
     
-    .play{
-      background-color: #97c203;
-      .play-icon{
-        width: 0.5rem;
-      }
-    }
   }
-  
   .delete{
     background-color: #ff860b;
-    margin-right: 0.2rem;
+    position: absolute;
+    left: 0.25rem;
+    bottom: 0.2rem;
     .delete-icon{
       width: 0.65rem;
+    }
+  }
+  .play{
+    background-color: #97c203;
+    position: absolute;
+    bottom: 0.2rem;
+    right: 0.25rem;
+    .play-icon{
+      width: 0.5rem;
     }
   }
 }

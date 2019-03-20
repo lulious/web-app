@@ -28,6 +28,7 @@ class Content extends React.Component{
         list: list
       });
     })
+
   }
 
   componentDidUpdate = (prevProps,prevState) => {
@@ -52,7 +53,7 @@ class Content extends React.Component{
 
   onDragEnd = (res) => {
     console.log(res);
-    const { list,result, bgColor} = this.state;
+    const { list, result, bgColor} = this.state;
     const { destination, source } = res;
     if(!destination){
       return ;
@@ -75,9 +76,17 @@ class Content extends React.Component{
         result: result
       });
     }
+
+    // 拖拽到删除框内
+    if(source.droppableId === 'result' && destination.droppableId === 'delete'){
+      result.splice(source.index, 1);
+      this.setState({
+        result: result
+      });
+    }
     
   };
-  
+
   render(){
     console.log(this.props,this.state);
     const { bgColor, list, result } = this.state;
@@ -85,7 +94,7 @@ class Content extends React.Component{
     return (
       <DragDropContext onDragEnd = {this.onDragEnd} onDragStart={this.onDragStart} onDragUpdate={this.onDragUpdate}>
     
-        <div className={styles.content}>
+        <div className={styles.content} >
           <Droppable droppableId="droppable">
             {(provided, snapshot) => (
               <div 
@@ -153,24 +162,26 @@ class Content extends React.Component{
                 </div>
               )}
             </Droppable>
-            <Droppable droppableId="delete">
+            <Droppable droppableId="delete" direction="horizontal">
             {(provided, snapshot) => (
               <div 
-                ref={provided.innerRef}
-                className={styles['delete-area']}
-                {...provided.droppableProps}>
+              ref={provided.innerRef}
+              className={styles['delete-area']}
+              {...provided.droppableProps}>
                 {provided.placeholder}
-                <div className={`${styles.icon} ${styles.delete}`}>
-                  <img className={styles['delete-icon']} src={DeleteIcon} alt="" />
-                </div>
-                <div className={`${styles.icon} ${styles.play}`}>
-                    <img className={styles['play-icon']} src={PlayIcon} alt="" />
-                </div>
               </div>
             )}
           </Droppable>
+
+          </div>
+          <div className={`${styles.icon} ${styles.delete}`}>
+            <img className={styles['delete-icon']} src={DeleteIcon} alt="" />
+          </div>
+          <div className={`${styles.icon} ${styles.play}`}>
+            <img className={styles['play-icon']} src={PlayIcon} alt="" />
           </div>
         </div>
+        
       </DragDropContext>
     )
   }
