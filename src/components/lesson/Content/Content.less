@@ -2,7 +2,6 @@
   width: 8rem;
   height: 100%;
   padding: 0.11rem 0;
-  position: relative;
   .icon-container{
     width: 2.98rem;
     height: 0.55rem;
@@ -21,7 +20,6 @@
     width: 1.09rem;
     height: 1.09rem;
     border-radius: 50%;
-    position: absolute;
   }
   .top{
     height: 49%;
@@ -35,8 +33,19 @@
     height: 50%;
     background-color: #e9f2ca;
     border-radius: 0.2rem;  
-    padding: 0.4rem 0.43rem;
-    position: relative;
+    padding: 0.4rem 0.43rem 0;
+
+    .drop-area{
+      height: 70%;
+    }
+
+    .delete-area{
+      // height: 30%;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      margin-top: 0rem;
+    }
     .result{
       background-image: url('img/result-item.png'); 
       background-size: 100% 100%;
@@ -44,8 +53,6 @@
     
     .play{
       background-color: #97c203;
-      right: 0.2rem;
-      bottom: 0.18rem;
       .play-icon{
         width: 0.5rem;
       }
@@ -54,8 +61,7 @@
   
   .delete{
     background-color: #ff860b;
-    bottom: 0.28rem;
-    right: 1.8rem;
+    margin-right: 0.2rem;
     .delete-icon{
       width: 0.65rem;
     }

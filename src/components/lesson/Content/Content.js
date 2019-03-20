@@ -83,81 +83,94 @@ class Content extends React.Component{
     const { bgColor, list, result } = this.state;
 
     return (
-      <DragDropContext onDragEnd = {this.onDragEnd}>
-        
+      <DragDropContext onDragEnd = {this.onDragEnd} onDragStart={this.onDragStart} onDragUpdate={this.onDragUpdate}>
+    
+        <div className={styles.content}>
+          <Droppable droppableId="droppable">
+            {(provided, snapshot) => (
+              <div 
+                ref={provided.innerRef}
+                className={styles.top}
+                {...provided.droppableProps}
+              >
+              {list.map((item, index) => (
+                <Draggable key={index} draggableId={`droppable-${index}`} index={index}  >
+                  {(provided, snapshot) => (
+                    <React.Fragment>
+                      <div
+                        ref={provided.innerRef}
+                        {...provided.draggableProps}
+                        {...provided.dragHandleProps}
+                      >
+                        <div className={styles['icon-container']} style={{backgroundColor: bgColor}} >
+                          {item}
+                        </div>
+                      </div>
 
-      <div className={styles.content}>
-      <Droppable droppableId="droppable" isDropDisabled={true}>
-        {(provided, snapshot) => (
-          <div 
-            ref={provided.innerRef}
-            className={styles.top}
-            {...provided.droppableProps}
-          >
-           {list.map((item, index) => (
-            <Draggable key={index} draggableId={`droppable-${index}`} index={index}  >
-              {(provided, snapshot) => (
-                <React.Fragment>
-                  <div
-                    ref={provided.innerRef}
-                    {...provided.draggableProps}
-                    {...provided.dragHandleProps}
-                  >
-                    <div className={styles['icon-container']} style={{backgroundColor: bgColor}} >
-                      {item}
-                    </div>
-                  </div>
-                  {snapshot.isDragging && (
-                    <div className={styles['icon-container']} style={{backgroundColor: bgColor}} >
-                      {item}
-                    </div>
+                      {snapshot.isDragging && (
+                        <div className={styles['icon-container']} style={{backgroundColor: bgColor}} >
+                          {item}
+                        </div>
+                      )}
+                    </React.Fragment>
                   )}
-                </React.Fragment>
-              )}
-            </Draggable>
-           ))}
-           {provided.placeholder}
-          </div>
-        )} 
-        
-      </Droppable>
-      
-      <Droppable droppableId="result">
-        {(provided, snapshot) => (
-          <div
-            ref={provided.innerRef}
-            className={styles.bottom}
-            {...provided.droppableProps}
-          >
-           {result.map((item, index) => (
-            <Draggable key={item.id} draggableId={item.id} index={index}  >
+                </Draggable>
+              ))}
+              {provided.placeholder}
+              </div>
+            )} 
+            
+          </Droppable>
+          
+          <div className={styles.bottom}>
+            <Droppable droppableId="result">
               {(provided, snapshot) => (
                 <div
                   ref={provided.innerRef}
-                  {...provided.draggableProps}
-                  {...provided.dragHandleProps}
+                  className={styles['drop-area']}
+                  {...provided.droppableProps}
                 >
-                  <div className={`${styles['icon-container']} ${styles.result}`} style={{backgroundColor: item.bgColor}} >
-                    {item.content}
-                  </div>
+                {result.map((item, index) => (
+                  <Draggable key={item.id} draggableId={item.id} index={index}  >
+                    {(provided, snapshot) => (
+                      <div
+                        ref={provided.innerRef}
+                        {...provided.draggableProps}
+                        {...provided.dragHandleProps}
+                      >
+                        <div className={`${styles['icon-container']} ${styles.result}`} style={{backgroundColor: item.bgColor}} >
+                          {item.content}
+                        </div>
+                        {/* {snapshot.draggingOver} */}
+                      </div>
+                    )}
+                  </Draggable>
+                ))}
+                  {provided.placeholder}
+                  {/* <div className={`${styles.icon} ${styles.play}`}>
+                    <img className={styles['play-icon']} src={PlayIcon} alt="" />
+                  </div> */}
                 </div>
               )}
-            </Draggable>
-           ))}
-            {provided.placeholder}
-            {/* <div className={`${styles.icon} ${styles.delete}`}>
-              <img className={styles['delete-icon']} src={DeleteIcon} alt="" />
-            </div> */}
-            <div className={`${styles.icon} ${styles.play}`}>
-              <img className={styles['play-icon']} src={PlayIcon} alt="" />
-            </div>
+            </Droppable>
+            <Droppable droppableId="delete">
+            {(provided, snapshot) => (
+              <div 
+                ref={provided.innerRef}
+                className={styles['delete-area']}
+                {...provided.droppableProps}>
+                {provided.placeholder}
+                <div className={`${styles.icon} ${styles.delete}`}>
+                  <img className={styles['delete-icon']} src={DeleteIcon} alt="" />
+                </div>
+                <div className={`${styles.icon} ${styles.play}`}>
+                    <img className={styles['play-icon']} src={PlayIcon} alt="" />
+                </div>
+              </div>
+            )}
+          </Droppable>
           </div>
-        )}
-      </Droppable>
-       <div className={`${styles.icon} ${styles.delete}`}>
-          <img className={styles['delete-icon']} src={DeleteIcon} alt="" />
         </div>
-      </div>
       </DragDropContext>
     )
   }
