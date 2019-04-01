@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './HomeView.less';
-import Logo from 'img/logo.png';
+import Logo from 'img/logo-1.png';
 import Content from 'img/content-2.png';
 import Teacher from 'img/content-3.png';
 import Lesson from 'img/content-4.png';
@@ -13,7 +13,7 @@ const LessonView = (props) => {
   
   return (
       <div className={styles.container}>
-        <Login className={styles.login} />
+        {/* <Login className={styles.login} /> */}
         <div className={styles['content-1']}>
           <div className={styles.header}>
             <img className={styles.logo} src={Logo} alt="" />
@@ -30,28 +30,9 @@ const LessonView = (props) => {
               <span>注册</span>
             </div>
           </div>
-          <div className={styles.feature}>
-            <div className={styles.computer}>
-              <div className={styles['computer-icon-container']}>
-                <img className={styles['computer-icon']} src={Computer} alt="" />
-              </div>
-              <span className={styles.title}>趣味图形化编程课</span>
-              <span>入门优选</span>
-              <span>让编程像搭积木一样好玩</span>
-            </div>
-            <div className={styles.hand}>
-              <img className={styles['hand-icon']} src={Hand} alt="" />
-              <span className={styles.title}>Python游戏化编程课</span>
-              <span>列入高考科目</span>
-              <span>学Python要从娃娃抓起</span>
-            </div>
-            <div className={styles.fly}>
-              <img className={styles['fly-icon']} src={Fly} alt="" />
-              <span className={styles.title}>1对1大师课</span>
-              <span>沉浸式学习</span>
-              <span>真正放飞想像力</span>
-            </div>
-          </div>
+        <div className={styles.feature}>
+          飞象章鱼通过编程教育与智能硬件的结合，使孩子在图形化编程、游戏设计、软件开发、算法学习、三维设计、程序撰写、智能机器控制、人脸语音识别的过程中了解AI、科技、艺术、数学、人工智能等综合性知识技能，全方位的培养孩子的逻辑思维能力、实践创作能力、跨学科综合能力、审美能力和团队协作能力等综合素养。
+        </div>
         </div>
         <img className={styles['content-2']} src={Content} alt="" />
         <img className={styles['content-3']} src={Teacher} alt="" />
