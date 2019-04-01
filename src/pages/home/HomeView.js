@@ -7,11 +7,13 @@ import Lesson from 'img/content-4.png';
 import Computer from 'img/computer-icon.png';
 import Hand from 'img/hand-icon.png';
 import Fly from 'img/fly-icon.png';
+import Login from 'components/home/Login/Login'
 
 const LessonView = (props) => {
   
   return (
       <div className={styles.container}>
+        <Login className={styles.login} />
         <div className={styles['content-1']}>
           <div className={styles.header}>
             <img className={styles.logo} src={Logo} alt="" />
@@ -53,7 +55,6 @@ const LessonView = (props) => {
         </div>
         <img className={styles['content-2']} src={Content} alt="" />
         <img className={styles['content-3']} src={Teacher} alt="" />
-        {/* <img className={styles['content-4']} src={Lesson} alt="" /> */}
         <div className={styles['content-4']}>
           <span>免费预约价值<span>298</span>元体验课</span>
           <span>轻松好玩的编程体验</span>
