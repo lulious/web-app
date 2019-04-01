@@ -1,8 +1,9 @@
-
 import React from 'react';
-import classnames from 'classnames'
-import styles from './Login.less'
-import LoginLogo from 'img/login-logo.png'
+import classnames from 'classnames';
+import styles from './Login.less';
+import LoginLogo from 'img/logo-1.png';
+import LoginItem from './LoginItem';
+
 
 const Login = (props) => {
   const { className } = props
@@ -14,11 +15,8 @@ const Login = (props) => {
   return (
     <div className={cls}>
       <div className={styles.container}>
-        <img className={styles.logo} src={LoginLogo} />
-        <div className={styles.info}>
-          <span>编程学习去哪里</span>
-          <span>飞象章鱼属于你</span>
-        </div>
+        <img className={styles.logo} src={LoginLogo} alt="" />
+        <LoginItem />
       </div>
     </div>
   );

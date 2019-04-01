@@ -1,5 +1,4 @@
 .login{
-
   background-color: rgba(0, 0, 0, 0.79);
   position: fixed;
   top: 0;
@@ -8,15 +7,34 @@
     width: 8.04rem;
     height: 5rem;
     margin: 1.59rem auto;
-    background-image: url('img/login-bg.png');
+    // background-image: url('img/login-bg.png');
     background-size: 100% 100%;
     .logo{
-      width: 1.13rem;
+      width: 2.15rem;
       margin: 0.2rem;
     }
-    .info{
+    .form{
       display: flex;
       flex-direction: column;
+      justify-content: space-between;
+      height: 1rem;
+      .icon{
+        width: 0.15rem;
+      }
+    }
+    .button{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 3rem;
+      height: 0.4rem;
+      border-radius: 0.2rem;
+      background: linear-gradient(right, #839748, #826497);
+      margin-top: 20px;
     }
   }
+  
+}
+.login-form-button{
+  color: red;
 }
