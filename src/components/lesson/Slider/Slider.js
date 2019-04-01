@@ -12,11 +12,13 @@ import PenIcon from 'img/pen-icon.png';
 import ActivePen from 'img/active-pen.png';
 import DataIcon from 'img/data-icon.png';
 import ActiveData from 'img/active-data.png';
-import styles from './Slider.less'
+import './Slider.less';
 
 const getCls = (type, active) => {
-  return active===type ? styles.active : '';
+  return active===type ? 'active' : '';
 }
+
+const prefixCls = 'component-lesson-slider';
 
 class Slider extends React.Component{
  
@@ -28,42 +30,42 @@ class Slider extends React.Component{
     const active = this.props.activeItem;
     const handleClick = this.handleClick;
     return (
-      <div className={styles.slider}>
-        <div className={`${styles.item} ${styles.action} ${getCls('action',active)}`} onClick={()=>{handleClick('action')}}>
-          <div className={styles['icon-container']}>
-            <img className={styles.icon} src={active === 'action' ? ActivePerson : PersonIcon} alt="" />
+      <div className={prefixCls}>
+        <div className={`item action ${getCls('action',active)}`} onClick={()=>{handleClick('action')}}>
+          <div className="icon-container">
+            <img className="icon" src={active === 'action' ? ActivePerson : PersonIcon} alt="" />
           </div>
-          <div className={styles.title}>动作</div>
+          <div className="title">动作</div>
         </div>
-        <div className={`${styles.item} ${styles.event} ${getCls('event',active)}`} onClick={()=>{handleClick('event')}}>
-          <div className={styles['icon-container']}>
-            <img className={styles.icon} src={active === 'event' ? ActiveBus : BusIcon} alt="" />
+        <div className={`item event ${getCls('event',active)}`} onClick={()=>{handleClick('event')}}>
+          <div className="icon-container">
+            <img className="icon" src={active === 'event' ? ActiveBus : BusIcon} alt="" />
           </div>
-          <div className={styles.title}>事件</div>
+          <div className="title">事件</div>
         </div>
-        <div className={`${styles.item} ${styles.outward} ${getCls('outward',active)}`} onClick={()=>{handleClick('outward')}}>
-          <div className={styles['icon-container']}>
-            <img className={styles.icon} src={active === 'outward' ? ActiveUm : UmbraIcon} alt="" />
+        <div className={`item outward ${getCls('outward',active)}`} onClick={()=>{handleClick('outward')}}>
+          <div className="icon-container">
+            <img className="icon" src={active === 'outward' ? ActiveUm : UmbraIcon} alt="" />
           </div>
-          <div className={styles.title}>外观</div>
+          <div className="title">外观</div>
         </div>
-        <div className={`${styles.item} ${styles.sound} ${getCls('sound',active)}`} onClick={()=>{handleClick('sound')}}>
-          <div className={styles['icon-container']}>
-            <img className={styles.icon} src={active === 'sound' ? ActiveSound : SoundIcon} alt="" />
+        <div className={`item sound ${getCls('sound',active)}`} onClick={()=>{handleClick('sound')}}>
+          <div className="icon-container">
+            <img className="icon" src={active === 'sound' ? ActiveSound : SoundIcon} alt="" />
           </div>
-          <div className={styles.title}>声音</div>
+          <div className="title">声音</div>
         </div>
-        <div className={`${styles.item} ${styles.pen} ${getCls('pen',active)}`} onClick={()=>{handleClick('pen')}}>
-          <div className={styles['icon-container']}> 
-            <img className={styles.icon} src={active === 'pen' ? ActivePen : PenIcon} alt="" />
+        <div className={`item pen ${getCls('pen',active)}`} onClick={()=>{handleClick('pen')}}>
+          <div className="icon-container"> 
+            <img className="icon" src={active === 'pen' ? ActivePen : PenIcon} alt="" />
           </div>
-          <div className={styles.title}>画笔</div>
+          <div className="title">画笔</div>
         </div>
-        <div className={`${styles.item} ${styles.data} ${getCls('data',active)}`} onClick={()=>{handleClick('data')}}>
-          <div className={styles['icon-container']}>
-            <img className={styles.icon} src={active === 'data' ? ActiveData : DataIcon} alt="" />
+        <div className={`item data ${getCls('data',active)}`} onClick={()=>{handleClick('data')}}>
+          <div className="icon-container">
+            <img className="icon" src={active === 'data' ? ActiveData : DataIcon} alt="" />
           </div>
-          <div className={styles.title}>数据</div>
+          <div className="title">数据</div>
         </div>
       </div>
     );

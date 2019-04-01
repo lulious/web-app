@@ -3,14 +3,16 @@ import Header from 'components/lesson/Header/Header';
 import Slider from 'components/lesson/Slider/Slider';
 import Content from 'components/lesson/Content/Content';
 import Result from 'components/lesson/Result/Result';
-import styles from './LessonView.less';
+import './LessonView.less';
+
+const prefixCls = 'lesson-page-container';
 
 const LessonView = (props) => {
   
   return (
-      <div className={styles.container}>
+      <div className={prefixCls}>
         <Header />
-        <div className={styles.content}>
+        <div className="content">
           <Slider />
           <Content />
           <Result />

@@ -2,6 +2,7 @@ const path = require('path');
 export default{
   "entry": "src/index.js",
   "publicPath": "/",
+  "disableCSSModules": true,
   "extraBabelPlugins": [
     ["import", { "libraryName": "antd", "libraryDirectory": "es", "style": true }]
   ],

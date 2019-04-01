@@ -2,12 +2,13 @@ import React from 'react';
 import {connect} from 'dva';
 import uuid from 'uuid/v4';
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
-import styles from './Content.less';
+import './Content.less';
 import { getColorByType }  from 'utils/util';
 import { getList } from 'services/query';
 import PlayIcon from 'img/play-icon.png';
 import DeleteIcon from  'img/delete-icon.png';
 
+const prefixCls = 'component-lesson-content';
 class Content extends React.Component{
   constructor(props){
     super(props);
@@ -94,12 +95,12 @@ class Content extends React.Component{
     return (
       <DragDropContext onDragEnd = {this.onDragEnd} onDragStart={this.onDragStart} onDragUpdate={this.onDragUpdate}>
     
-        <div className={styles.content} >
+        <div className={prefixCls}>
           <Droppable droppableId="droppable">
             {(provided, snapshot) => (
               <div 
                 ref={provided.innerRef}
-                className={styles.top}
+                className="top"
                 {...provided.droppableProps}
               >
               {list.map((item, index) => (
@@ -111,13 +112,13 @@ class Content extends React.Component{
                         {...provided.draggableProps}
                         {...provided.dragHandleProps}
                       >
-                        <div className={styles['icon-container']} style={{backgroundColor: bgColor}} >
+                        <div className="icon-container" style={{backgroundColor: bgColor}} >
                           {item}
                         </div>
                       </div>
 
                       {snapshot.isDragging && (
-                        <div className={styles['icon-container']} style={{backgroundColor: bgColor}} >
+                        <div className="icon-container" style={{backgroundColor: bgColor}} >
                           {item}
                         </div>
                       )}
@@ -131,12 +132,12 @@ class Content extends React.Component{
             
           </Droppable>
           
-          <div className={styles.bottom}>
+          <div className="bottom">
             <Droppable droppableId="result">
               {(provided, snapshot) => (
                 <div
                   ref={provided.innerRef}
-                  className={styles['drop-area']}
+                  className="drop-area"
                   {...provided.droppableProps}
                 >
                 {result.map((item, index) => (
@@ -147,7 +148,7 @@ class Content extends React.Component{
                         {...provided.draggableProps}
                         {...provided.dragHandleProps}
                       >
-                        <div className={`${styles['icon-container']} ${styles.result}`} style={{backgroundColor: item.bgColor}} >
+                        <div className="icon-container result" style={{backgroundColor: item.bgColor}} >
                           {item.content}
                         </div>
                         {/* {snapshot.draggingOver} */}
@@ -156,7 +157,7 @@ class Content extends React.Component{
                   </Draggable>
                 ))}
                   {provided.placeholder}
-                  {/* <div className={`${styles.icon} ${styles.play}`}>
+                  {/* <div className={`$"icon} $"play}`}>
                     <img className={styles['play-icon']} src={PlayIcon} alt="" />
                   </div> */}
                 </div>
@@ -166,7 +167,7 @@ class Content extends React.Component{
             {(provided, snapshot) => (
               <div 
               ref={provided.innerRef}
-              className={styles['delete-area']}
+              className="delete-area"
               {...provided.droppableProps}>
                 {provided.placeholder}
               </div>
@@ -174,11 +175,11 @@ class Content extends React.Component{
           </Droppable>
 
           </div>
-          <div className={`${styles.icon} ${styles.delete}`}>
-            <img className={styles['delete-icon']} src={DeleteIcon} alt="" />
+          <div className="icon delete">
+            <img className="delete-icon" src={DeleteIcon} alt="" />
           </div>
-          <div className={`${styles.icon} ${styles.play}`}>
-            <img className={styles['play-icon']} src={PlayIcon} alt="" />
+          <div className="icon play">
+            <img className="play-icon" src={PlayIcon} alt="" />
           </div>
         </div>
         
