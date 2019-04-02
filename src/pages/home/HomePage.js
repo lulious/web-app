@@ -6,7 +6,8 @@ class HomePage extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      showLogin: false
+      showLogin: false,
+      showRegister: false
     }
   }
 
@@ -16,11 +17,18 @@ class HomePage extends React.Component{
     })
   }
 
+  setShowRegister = type => {
+    this.setState({
+      showRegister: type
+    })
+  }
+
   render(){
     return (
       <HomeView 
         {...this.state}
         setShowLogin={this.setShowLogin} 
+        setShowRegister={this.setShowRegister}
       />
     )
   }

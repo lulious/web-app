@@ -3,15 +3,19 @@ import './HomeView.less';
 import Logo from 'img/logo-1.png';
 import Content from 'img/content-2.png';
 import Teacher from 'img/content-3.png';
-import Login from 'components/home/Login/Login'
+import Login from 'components/home/Login/Login';
+import Register from 'components/home/Register/Register';
 
 const prefixCls = 'home-page-container'
 const LessonView = (props) => {
-  const {showLogin, setShowLogin } = props;
+  const {showLogin, setShowLogin, showRegister, setShowRegister } = props;
   return (
       <div className={prefixCls}>
         {
-          showLogin ? (<Login className="login" handleClose={()=>setShowLogin(false)} />): null
+          showLogin ? (<Login className="login" handleClose={()=>setShowLogin(false)} />):null
+        }
+        {
+          showRegister ? (<Register className="register" handleClose={()=>setShowRegister(false)} />):null
         }
         <div className="content-1">
           <div className="header">
@@ -26,7 +30,7 @@ const LessonView = (props) => {
             </div>
             <div className="login-container">
               <span onClick={()=>setShowLogin(true)}>登录</span>
-              <span>注册</span>
+              <span onClick={()=>setShowRegister(true)}>注册</span>
             </div>
           </div>
           <div className="feature">
