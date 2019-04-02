@@ -1,9 +1,11 @@
-.login{
+@prefixCls: component-home-login;
+.@{prefixCls}{
   background-color: rgba(0, 0, 0, 0.79);
   position: fixed;
   top: 0;
   left: 0;
   .container{
+    position: relative;
     width: 8.04rem;
     height: 5rem;
     margin: 1.59rem auto;
@@ -13,28 +15,61 @@
       width: 2.15rem;
       margin: 0.2rem;
     }
-    .form{
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      height: 1rem;
-      .icon{
-        width: 0.15rem;
+    .close-icon {
+      width: 0.47rem;
+      height: 0.47rem;;
+      background: #000000;
+      border-radius: 50%;
+      position: absolute;
+      top: -0.4rem;
+      right: -0.5rem;
+    }
+    .info{
+      color: #0569e7;
+      font-size: 0.4rem;
+      margin-left: 0.8rem;
+      margin-top: 0.4rem;
+      letter-spacing: 0.1rem;
+    }
+    .eng-info{
+      color: #2b2d42;
+      margin-left: 1.2rem;
+      margin-bottom: 0.38rem;
+    }
+    .login-form{
+      margin-left: 1rem;
+      .ant-input{
+        width: 2.8rem;
+        height: 0.36rem;
+        border-radius: 0.18rem;
+        padding-left: 0.5rem;
+      }
+      .ant-form-item{
+        margin-bottom: 0.12rem;
+      }
+      .ant-form-item-control{
+        line-height: 1;
+      }
+      .checkbox{
+        color: #535353;
       }
     }
-    .button{
+    .login-form-button{
       display: flex;
       justify-content: center;
       align-items: center;
-      width: 3rem;
+      width: 2.8rem;
       height: 0.4rem;
+      border: none;
       border-radius: 0.2rem;
-      background: linear-gradient(right, #839748, #826497);
-      margin-top: 20px;
+      background: linear-gradient(left, #4d96ff, #6ce6d3);
+      margin: 0.16rem 0;
+    }
+    .login-form-forgot{
+      color: #3678ff;
+      border-left: 1px solid #c0c0c0;
+      padding-left: 0.2rem;
     }
   }
   
-}
-.login-form-button{
-  color: red;
 }

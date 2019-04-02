@@ -7,10 +7,12 @@ import Login from 'components/home/Login/Login'
 
 const prefixCls = 'home-page-container'
 const LessonView = (props) => {
-  
+  const {showLogin, setShowLogin } = props;
   return (
       <div className={prefixCls}>
-        {/* <Login className="login" /> */}
+        {
+          showLogin ? (<Login className="login" handleClose={()=>setShowLogin(false)} />): null
+        }
         <div className="content-1">
           <div className="header">
             <img className="logo" src={Logo} alt="" />
@@ -23,7 +25,7 @@ const LessonView = (props) => {
               <div className="item">课程体验</div>
             </div>
             <div className="login-container">
-              <span>登录</span>
+              <span onClick={()=>setShowLogin(true)}>登录</span>
               <span>注册</span>
             </div>
           </div>
