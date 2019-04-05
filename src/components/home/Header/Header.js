@@ -1,5 +1,5 @@
 import React from 'react';
-import Logo from 'img/logo-1.png';
+import Logo from 'img/logo.png';
 import './Header.less';
 
 const prefixCls = 'components-home-header';

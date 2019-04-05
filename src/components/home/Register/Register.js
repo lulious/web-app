@@ -2,7 +2,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import './Register.less';
-import LoginLogo from 'img/logo-1.png';
+import LoginLogo from 'img/logo.png';
 import RegisterItem from './RegisterItem';
 import CloseIcon from 'img/close-icon.png';
 

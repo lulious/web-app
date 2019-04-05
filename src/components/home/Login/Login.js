@@ -1,7 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import './Login.less';
-import LoginLogo from 'img/logo-1.png';
+import LoginLogo from 'img/logo.png';
 import LoginItem from './LoginItem';
 import CloseIcon from 'img/close-icon.png';
 
