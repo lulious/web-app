@@ -34,10 +34,10 @@ export default class ApplyPage extends React.Component{
     return (
       <div className={prefixCls}>   
         {
-          showLogin ? (<Login className="login" handleClose={()=>this.setShowLogin(false)} />):null
+          showLogin ? (<Login handleClose={()=>this.setShowLogin(false)} />):null
         }
         {
-          showRegister ? (<Register className="register" handleClose={()=>this.setShowRegister(false)} />):null
+          showRegister ? (<Register handleClose={()=>this.setShowRegister(false)} />):null
         } 
         <div className="container">
           <Header setShowLogin={this.setShowLogin} setShowRegister={this.setShowRegister}  />

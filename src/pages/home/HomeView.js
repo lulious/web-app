@@ -13,10 +13,10 @@ const LessonView = (props) => {
   return (
       <div className={prefixCls}>
         {
-          showLogin ? (<Login className="login" handleClose={()=>setShowLogin(false)} />):null
+          showLogin ? (<Login handleClose={()=>setShowLogin(false)} />):null
         }
         {
-          showRegister ? (<Register className="register" handleClose={()=>setShowRegister(false)} />):null
+          showRegister ? (<Register handleClose={()=>setShowRegister(false)} />):null
         }
         <div className="content-1">
           <Header setShowLogin={setShowLogin} setShowRegister={setShowRegister}  />
