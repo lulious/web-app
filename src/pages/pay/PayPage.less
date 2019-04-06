@@ -1,0 +1,83 @@
+@prefixCls: pay-page-container;
+.@{prefixCls}{
+  width: 100%;
+  font-size: 14px;
+  .content{
+    width: 100%;
+    height: 11.52rem;
+    background: url('../../../public/img/pay-bg.png') no-repeat;
+    background-size: 100%;
+    .info{
+      display: flex;
+      justify-content: space-between;
+      width: 2rem;
+      color: #2773fb;
+      font-size: 0.3rem;
+      margin: 1.3rem 0 0.3rem 4.9rem;
+    }
+    .account{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      width: 7.2rem;
+      height: 2.7rem;
+      margin-left: 5.9rem;
+      border-bottom: 2px dashed  #ccc;
+      font-size: 0.16rem;
+      .red{
+        color: #d43921;
+        font-size: 0.18rem;
+      }
+      .lesson{
+        display: flex;
+        align-items: center;
+        .bold{
+          font-size: 0.18rem;
+          font-weight: bold;
+        }
+        .button{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 0.62rem;
+          height: 0.24rem;
+          color: #669dff;
+          border: 1px solid #669dff;
+          border-radius: 0.12rem;
+          margin-left: 0.1rem;
+        }
+      }
+      .money{
+        color: #d12202;
+        font-size: 0.48rem;
+        font-weight: 0.7;
+      }
+    }
+    .pay-container{
+      display: flex;
+      margin: 0.7rem 0 0 5.9rem;
+      font-size: 0.16rem;
+      .label{
+        margin: 0.2rem 0.2rem 0 0;
+      }
+      .pay{
+        display: flex;
+        align-items: center;
+        width: 2.02rem;
+        height: 0.68rem;
+        border-radius: 0.15rem;
+        padding-left: 0.1rem;
+        margin-bottom: 0.2rem;
+        .icon{
+          width: 0.48rem;
+          height: 0.48rem;
+          margin-right: 0.2rem;
+          margin-left: 0.05rem;
+        }
+      }
+      .qrcode{
+        margin-left: 1.18rem;
+      }
+    }
+  }
+}
