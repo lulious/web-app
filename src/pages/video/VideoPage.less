@@ -7,14 +7,37 @@
     height: 11.52rem;
     background: url('../../../public/img/video-bg.png') no-repeat;
     background-size: 100%;
-    .info{
+    >.info{
       display: flex;
       justify-content: space-between;
       align-items: center;
       width: 2.2rem;
       color: #2773fb;
       font-size: 0.3rem;
-      margin: 1.3rem 0 0.3rem 4.9rem;
+      margin: 1.3rem 0 0.8rem 4.9rem;
+    }
+    >.video-list-container{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: #292929;
+      >.video-item{
+        margin-bottom: 0.5rem;
+        >.title{
+          font-size: 0.24rem;
+          font-weight: 500;
+          margin-bottom: 0.2rem;
+        }
+        >.info{
+          display: flex;
+          .banner{
+            display: inline-block;
+            width: 4.53rem;
+            height: 2.07rem;
+            margin-right: 0.28rem;
+          }
+        }
+      }
     }
   }
 }
