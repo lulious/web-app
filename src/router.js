@@ -5,6 +5,7 @@ import HomePage from './pages/home/HomePage';
 import ApplyPage from './pages/apply/ApplyPage';
 import SystemPage from './pages/system/SystemPage';
 import PayPage from './pages/pay/PayPage';
+import VideoPage from './pages/video/VideoPage';
 
 
 function RouterConfig({ history }) {
@@ -16,6 +17,8 @@ function RouterConfig({ history }) {
         <Route path="/apply" exact component={ApplyPage} />
         <Route path="/system" exact component={SystemPage} />
         <Route path="/pay" exact component={PayPage} />
+        <Route path="/video" exact component={VideoPage} />
+
       </Switch>
     </Router>
   );

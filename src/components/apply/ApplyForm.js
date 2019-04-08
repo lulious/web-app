@@ -101,7 +101,11 @@ class ApplyFormItem extends React.Component {
           )}
         </Form.Item>
         <Form.Item
-          label="联系电话"
+          label={(
+            <span>
+              联系电话&nbsp;
+            </span>
+          )}
         >
           {getFieldDecorator('phone', {
             rules: [{ required: true, message: '请输入你的联系电话!' }],
@@ -110,7 +114,11 @@ class ApplyFormItem extends React.Component {
           )}
         </Form.Item>
         <Form.Item
-          label="所在城市"
+          label={(
+            <span>
+              所在城市&nbsp;
+            </span>
+          )}
         >
           {getFieldDecorator('residence', {
             rules: [{ type: 'array', required: true, message: '请输入你所在的城市!' }],
@@ -119,7 +127,11 @@ class ApplyFormItem extends React.Component {
           )}
         </Form.Item>
         <Form.Item
-          label="邮箱"
+          label={(
+            <span>
+              邮箱&nbsp;
+            </span>
+          )}
         >
           {getFieldDecorator('email', {
             rules: [{
