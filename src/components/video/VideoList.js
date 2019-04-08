@@ -67,7 +67,7 @@ export default class VideoList extends React.Component{
         {
           map.map(item=>{
             return (
-              <div className="item">
+              <div className="item" key={item.seq}>
                 <img className="play-icon" src={PlayIcon} />
                 <span className="seq">第&nbsp;{item.seq}课</span>
                 <span className="name">{item.name}</span>

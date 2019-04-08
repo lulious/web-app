@@ -34,8 +34,16 @@ export default class VideoPage extends React.Component{
       showRegister: type
     })
   }
+
+  goToVideoList = () => {
+    this.setState({
+      lessonId: '11'
+    })
+  }
+
   render(){
-    const  { showLogin, showRegister } = this.state;
+    console.log(this.state);
+    const  { showLogin, showRegister, lessonId } = this.state;
     return (
       <div className={prefixCls}>   
         {
@@ -50,31 +58,36 @@ export default class VideoPage extends React.Component{
             <img className="apply-icon" src={ApplyIcon} alt="" />
             <span className="blue">课程体验</span>
           </div> 
-          {/* <div className="video-list-container">
-            <div className="video-item">
-              <div className="title">源码编辑器公开课</div>
-              <div className="info">
-                <img className="banner" src={Lesson1} alt="" />
-                <VideoCard />
+          {
+            !lessonId ? (
+            <div className="video-list-container">
+              <div className="video-item">
+                <div className="title">源码编辑器公开课</div>
+                <div className="info">
+                  <img className="banner" src={Lesson1} alt="" onClick={this.goToVideoList} />
+                  <VideoCard />
+                </div>
+              </div>
+              <div className="video-item">
+                <div className="title">代码岛2.0公开课</div>
+                <div className="info">
+                  <img className="banner" src={Lesson2} alt="" onClick={this.goToVideoList} />
+                  <VideoCard />
+                </div>
               </div>
             </div>
-            <div className="video-item">
-              <div className="title">代码岛2.0公开课</div>
-              <div className="info">
-                <img className="banner" src={Lesson2} alt="" />
-                <VideoCard />
+            ) : (
+            <div className="video-container">
+              <div>
+                <div className="title">课程名称</div>
+                <div className="video">
+                  <img className="video-img" src={Lesson1} alt="" />
+                  <VideoList />
+                </div>
               </div>
             </div>
-          </div> */}
-          <div className="video-container">
-            <div>
-              <div className="title">课程名称</div>
-              <div className="video">
-                <img className="video-img" src={Lesson1} alt="" />
-                <VideoList />
-              </div>
-            </div>
-          </div>
+            )
+          }
         </div> 
         <Footer />
       </div>

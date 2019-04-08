@@ -20,7 +20,7 @@ export default class VideoCard extends React.Component{
           {
             map.map(item=>{
               return (
-                <span className="item">{item}</span>
+                <span className="item" key={item}>{item}</span>
               )
             })
           }
