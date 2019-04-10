@@ -8,7 +8,16 @@
 
 ### 路由
 
-首页路由: http://localhost:8000/#/  (暂无)
+首页路由: http://localhost:8000/#/ 
 
-课程路由: http://localhost:8000/#/lesson 
+编程课程路由: http://localhost:8000/#/lesson 
+
+在线报名路由: http://localhost:8000/#/apply
+
+课程体系: http://localhost:8000/#/system
+
+在线支付: http://localhost:8000/#/pay
+
+视频课程: http://localhost:8000/#/video
+
 
