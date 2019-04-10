@@ -72,6 +72,7 @@ class ApplyFormItem extends React.Component {
           )}
         </Form.Item>
         <Form.Item
+          className="gender-form"
           label={(
             <span>
               性别&nbsp;
