@@ -23,7 +23,7 @@ const Login = (props) => {
           <span>少儿编程</span>
           <span>&nbsp;&gt;</span>
         </div>
-        <div className="eng-info">Frogramming&nbsp;&nbsp;For&nbsp;&nbsp;Kids </div>
+        <div className="eng-info">Programming&nbsp;&nbsp;For&nbsp;&nbsp;Kids </div>
         <LoginItem handleClose={handleClose} />
       </div>
     </div>
