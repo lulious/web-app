@@ -4,6 +4,7 @@ import {
 } from 'antd';
 import UserIcon from 'img/user-icon.png';
 import PassIcon from 'img/password-icon.png';
+import {login} from 'services/query';
 import './Login.less';
 
 class LoginForm extends React.Component {
@@ -22,7 +23,14 @@ class LoginForm extends React.Component {
         const userName = values.userName;
         const password = values.password;
         // 判断用户和密码 与 后台是否符合
-        this.props.handleClose();
+        login({
+          username: userName,
+          password: password
+        }).then(res =>{
+          console.log('登录成功');
+          console.log(res);
+          this.props.handleClose();
+        })
       }
     });
   }

@@ -1,4 +1,30 @@
 export default {
+  'POST /user/login'(req, res){
+    setTimeout(() => {
+      res.json({
+        success: true,
+        token: '873794364943'
+      });
+    }, 200);
+  },
+  'POST /user/register'(req, res){
+    setTimeout(() => {
+      res.json({
+        success: true,
+        mobile: '172569463',
+        token: '873794364943',
+        username: ''
+      });
+    }, 200);
+  },
+  'POST /user/code'(req, res){
+    setTimeout(() => {
+      res.json({
+        mobile: '172569463',
+      });
+    }, 200);
+  },
+  
   'GET /api/users': { users: [1,2] },
   'GET /api/getList':{
       'action': [

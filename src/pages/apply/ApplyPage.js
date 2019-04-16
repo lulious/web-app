@@ -37,7 +37,7 @@ export default class ApplyPage extends React.Component{
           showLogin ? (<Login handleClose={()=>this.setShowLogin(false)} />):null
         }
         {
-          showRegister ? (<Register handleClose={()=>this.setShowRegister(false)} />):null
+          showRegister ? (<Register handleClose={()=>this.setShowRegister(false)} goToLogin={()=>{ this.setShowRegister(false);this.setShowLogin(true)}} />):null
         } 
         <div className="container">
           <Header setShowLogin={this.setShowLogin} setShowRegister={this.setShowRegister}  />

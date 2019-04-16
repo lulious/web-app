@@ -16,7 +16,7 @@ const LessonView = (props) => {
           showLogin ? (<Login handleClose={()=>setShowLogin(false)} />):null
         }
         {
-          showRegister ? (<Register handleClose={()=>setShowRegister(false)} />):null
+          showRegister ? (<Register handleClose={()=>setShowRegister(false)} goToLogin={()=>{ setShowRegister(false);setShowLogin(true)}} />):null
         }
         <div className="content-1">
           <Header setShowLogin={setShowLogin} setShowRegister={setShowRegister}  />

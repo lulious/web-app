@@ -8,7 +8,7 @@ import CloseIcon from 'img/close-icon.png';
 
 const prefixCls = 'component-home-register';
 const Register = (props) => {
-  const { className, handleClose } = props
+  const { className, handleClose, goToLogin } = props
   console.log(props)
   const cls = classnames({
     [prefixCls]: true,
@@ -22,7 +22,7 @@ const Register = (props) => {
         <div className="info">
           用户注册
         </div>
-        <RegisterItem handleClose={handleClose} />
+        <RegisterItem handleClose={handleClose} goToLogin={goToLogin} />
       </div>
     </div>
   );

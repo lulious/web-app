@@ -50,8 +50,8 @@ export default class VideoPage extends React.Component{
           showLogin ? (<Login className="login" handleClose={()=>this.setShowLogin(false)} />):null
         }
         {
-          showRegister ? (<Register className="register" handleClose={()=>this.setShowRegister(false)} />):null
-        } 
+          showRegister ? (<Register handleClose={()=>this.setShowRegister(false)} goToLogin={()=>{ this.setShowRegister(false);this.setShowLogin(true)}} />):null
+        }
         <div className="content">
           <Header setShowLogin={this.setShowLogin} setShowRegister={this.setShowRegister}  />
           <div className="info">
