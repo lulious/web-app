@@ -14,3 +14,7 @@ export function register(data){
 export function code(data){
   return post('/user/code', data);
 }
+
+export function join(data){
+  return post('/join', data);
+}

@@ -3,7 +3,8 @@ export default {
     setTimeout(() => {
       res.json({
         success: true,
-        token: '873794364943'
+        token: '873794hduw64943',
+        msg: '登录成功'
       });
     }, 200);
   },
@@ -21,6 +22,15 @@ export default {
     setTimeout(() => {
       res.json({
         mobile: '172569463',
+      });
+    }, 200);
+  },
+
+  'POST /join'(req, res){
+    setTimeout(() => {
+      res.json({
+        success: true,
+        msg: '报名成功'
       });
     }, 200);
   },

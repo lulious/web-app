@@ -4,6 +4,7 @@ import {
   Form, Input, Cascader, Select,  Checkbox, Button, InputNumber, Radio
 } from 'antd';
 import { addressData } from 'utils/addressData.min.js';
+import { join } from 'services/query';
 import './ApplyForm.less';
 
 const { Option } = Select;
@@ -17,9 +18,23 @@ class ApplyFormItem extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
+    const lessonId = this.props.lessonId;
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
         console.log('Received values of form: ', values);
+        const { name, age, gender, level, phone, residence, email } = values;
+        join({
+          name: name,
+          age: age,
+          gender: gender,
+          level: level,
+          phone: phone,
+          residence: residence,
+          email: email,
+          lessonId: lessonId
+        }).then(res => {
+          console.log('报名成功')
+        })
       }
     });
   }
