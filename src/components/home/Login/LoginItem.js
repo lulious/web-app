@@ -29,6 +29,7 @@ class LoginForm extends React.Component {
         }).then(res =>{
           console.log('登录成功');
           console.log(res);
+          sessionStorage.setItem('token', res.data.token);
           this.props.handleClose();
         })
       }

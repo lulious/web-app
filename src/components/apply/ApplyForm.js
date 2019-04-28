@@ -31,7 +31,8 @@ class ApplyFormItem extends React.Component {
           phone: phone,
           residence: residence,
           email: email,
-          lessonId: lessonId
+          lessonId: lessonId,
+          token: sessionStorage.getItem('token')
         }).then(res => {
           console.log('报名成功')
         })
