@@ -6,6 +6,7 @@ import PhoneIcon from 'img/register-phone-icon.png';
 import PassIcon from 'img/password-icon.png';
 import {register, code} from 'services/query';
 import './Register.less';
+import { text } from 'utils/util'
 
 class RegisterForm extends React.Component {
   constructor(props){
@@ -75,13 +76,12 @@ class RegisterForm extends React.Component {
 
   showProcotal = () => {
     Modal.info({
-      title: '注册协议书',
+      title: '飞象章鱼用户服务协议',
       okText: '知道了',
       width: '50%',
       content: (
         <div>
-          <p>some messages...some messages...</p>
-          <p>some messages...some messages...</p>
+          <p>{text}</p>
         </div>
       ),
       onOk() {},
