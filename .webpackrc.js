@@ -1,7 +1,7 @@
 const path = require('path');
 export default{
   "entry": "src/index.js",
-  "publicPath": "/",
+  "publicPath": '/',
   "disableCSSModules": true,
   "extraBabelPlugins": [
     ["import", { "libraryName": "antd", "libraryDirectory": "es", "style": true }]
@@ -21,5 +21,18 @@ export default{
     "img": path.resolve(__dirname, "./public/img"),
     "utils": path.resolve(__dirname, "./src/utils"),
     "services": path.resolve(__dirname, "./src/services"),
-  }
+  },
+  "html": {
+    "template": './src/index.ejs',
+  },
+  // "proxy": {
+  //   '/': {
+  //     "target": 'http://119.3.234.131:9000/',
+  //     "changeOrigin": true,
+  //     "headers":{
+  //        // 你需要定义的请求头
+  //        Host: "localhost:8000"
+  //     }
+  //   }
+  // }
 }
