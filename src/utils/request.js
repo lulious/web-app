@@ -30,13 +30,20 @@ const parseQuery = (obj) => {
  * @param  {object} [options] The options we want to pass to "fetch"
  * @return {object}           An object containing either "data" or "err"
  */
-const request = (url, method = 'get', data) => {
-  const options = {
+const request = (url, method = 'get', data, token = '') => {
+  const options = token ? {
+    method: method,   // HTTP请求方法，默认为GET
+    headers: {        // HTTP的请求头，默认为{}
+      'Content-Type': 'application/json',
+      'Authorization': `JWT ${token}`
+    },
+    credentials: 'include' // 是否携带cookie，默认为omit,不携带; same-origi,同源携带; include,同源跨域都携带
+  }: {
     method: method,   // HTTP请求方法，默认为GET
     headers: {        // HTTP的请求头，默认为{}
       'Content-Type': 'application/json'
     },
-    credentials: 'include' // 是否携带cookie，默认为omit,不携带; same-origi,同源携带; include,同源跨域都携带
+    credentials: 'include'
   }
   if (method === 'get') {
     url += '?' + parseQuery(data)
@@ -49,10 +56,10 @@ const request = (url, method = 'get', data) => {
     .then(data => ({ data }))
     .catch(err => ({ err }));
 }
-export function get (url, data) {
-  return request(url, 'get', data)
+export function get (url, data, token) {
+  return request(url, 'get', data, token)
 }
 
-export function post (url, data) {
-  return request(url, 'post', data)
+export function post (url, data, token) {
+  return request(url, 'post', data, token)
 }

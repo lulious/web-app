@@ -15,6 +15,6 @@ export function code(data){
   return post('/code/', data);
 }
 
-export function join(data){
-  return post('/join/', data);
+export function join(data, token){
+  return post('/join/', data, token);
 }

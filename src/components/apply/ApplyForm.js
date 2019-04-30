@@ -22,18 +22,21 @@ class ApplyFormItem extends React.Component {
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
         console.log('Received values of form: ', values);
-        const { name, age, gender, level, phone, residence, email } = values;
+        const { name, age, gender, level, phone, prefix, residence, email } = values;
+        const token = sessionStorage.getItem('token');
+        console.log(residence.reduce((pre,cur)=>{return pre+cur;}))
         join({
+          off_class: '123',
           name: name,
-          age: age,
+          age: String(age),
           gender: gender,
-          level: level,
+          // level: level,
           phone: phone,
-          residence: residence,
+          prefix: prefix,
+          residence: residence.reduce((pre,cur)=>{return pre+cur;}),
           email: email,
           lessonId: lessonId,
-          token: sessionStorage.getItem('token')
-        }).then(res => {
+        }, token).then(res => {
           console.log('报名成功')
         })
       }

@@ -15,6 +15,7 @@ export default{
     },
     "production": {
       "publicPath": './',
+      "port": 9000
     }
   },
   "externals": {},
