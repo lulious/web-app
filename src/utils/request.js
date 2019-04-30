@@ -50,7 +50,8 @@ const request = (url, method = 'get', data, token = '') => {
   } else {
     options.body = JSON.stringify(data)
   }
-  return fetch(`http://119.3.234.131:9000${url}`, options)
+  // http://119.3.234.131:9000
+  return fetch(`http://119.3.234.131:8005${url}`, options)
     .then(checkStatus)
     .then(parseJSON)
     .then(data => ({ data }))
