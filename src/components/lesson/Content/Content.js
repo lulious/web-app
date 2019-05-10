@@ -21,14 +21,52 @@ class Content extends React.Component{
   componentDidMount = () => {
     const activeItem = this.props.activeItem;
     const bgColor = getColorByType(activeItem);
-    getList().then(res=>{
-      this.props.setList({list: res.data});
-      const list = res.data[activeItem];
-      this.setState({
-        bgColor: bgColor,
-        list: list
-      });
-    })
+    // getList().then(res=>{
+    //   this.props.setList({list: res.data});
+    //   const list = res.data[activeItem];
+    //   this.setState({
+    //     bgColor: bgColor,
+    //     list: list
+    //   });
+    // })
+    const obj = {
+      'action': [
+        '设置训练数据 特征1',
+        '设置特征2'
+      ],
+      'event': [
+        '设置特征1',
+        '设置特征2',
+        '设置训练数据 特征3',
+      ],
+      'outward': [
+        '设置特征1',
+        '设置特征2',
+        '设置训练数据 特征1',
+        '设置训练数据 特征3',
+      ],
+      'sound': [
+        '设置特征1',
+        '设置特征2',
+        '设置训练数据 特征1',
+      ],
+      'pen': [
+        '设置特征1',
+        '设置特征2',
+        '设置训练数据 特征3',
+      ],
+      'data': [
+        '设置特征1',
+        '设置特征2'
+      ]
+  };
+  this.props.setList({list: obj});
+  const list = obj[activeItem];
+  this.setState({
+    bgColor: bgColor,
+    list: list
+  });
+  
 
   }
 
