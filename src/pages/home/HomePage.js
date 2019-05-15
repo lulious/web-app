@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'dva';
+import { routerRedux } from 'dva/router';
 import HomeView from './HomeView'
 
 class HomePage extends React.Component{
@@ -23,6 +24,7 @@ class HomePage extends React.Component{
     })
   }
 
+
   render(){
     return (
       <HomeView 
@@ -39,5 +41,8 @@ export default connect(
   },
   (dispatch)=>{
     return {
+      goTo(path){
+        dispatch(routerRedux.push(path));
+      }
     }
   })(HomePage)

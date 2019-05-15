@@ -4,13 +4,32 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   font-size: 0.18rem;
   color: #fff;
   padding: 0.12rem 3.6rem 0;
   user-select: none;
-  .logo{
-    width: 2.63rem;
+  height: 1rem;
+  background-color: #4b9bff;
+  .logo-container{
+    width: 2.86rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .logo{
+      width: 1.54rem;
+    }
+    .logo-text{
+      display: flex;
+      flex-direction: column;
+      color: #fff;
+      font-size: 0.17rem;
+    }
   }
+  
   .nav{
     display: flex;
     align-items: center;
@@ -26,7 +45,26 @@
   .login-container{
     display: flex;
     justify-content: space-between;
-    width: 1rem;
+    align-items: center;
+    width: 2.4rem;
     font-weight: bold;
+    .user{
+      width: 0.32rem;
+      height: 0.32rem;
+      margin-right: 0.1rem;
+    }
+    .create{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 0.7rem;
+      height: 0.42rem;
+      color: #fff;
+      font-size: 0.18rem;
+      background-color: #ffb000;
+      border-radius: 10px;
+      opacity: 0.91;
+      margin-left: 0.1rem;
+    }
   }
 }

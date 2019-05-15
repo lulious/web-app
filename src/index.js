@@ -1,11 +1,14 @@
 import dva from 'dva';
+import { browserHistory } from 'dva/router';
 import 'react-dom';
 import 'babel-polyfill';
 import './index.css';
 import LessonModal from './models/lesson';
 
 // 1. Initialize
-const app = dva();
+const app = dva({
+  history: browserHistory
+});
 
 // 2. Plugins
 // app.use({});
