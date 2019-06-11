@@ -1,10 +1,10 @@
 const COLOR = {
-  'action': '#e64e1c',
-  'event': '#ff860b',
-  'outward': '#e5d003',
-  'sound': '#97c203',
-  'pen': '#0ca1bf',
-  'data': '#3375b2'
+  action: "#e64e1c",
+  event: "#ff860b",
+  outward: "#e5d003",
+  sound: "#97c203",
+  pen: "#0ca1bf",
+  data: "#3375b2"
 };
 export const text = `1．释义
 本服务协议是用户与北京飞象章鱼科技有限公司（以下简称"飞象章鱼"）之间的法律协议（包括但不仅限于所订立的相关权利义务规范）。用户指愿意接受本协议，注册成为"飞象章鱼"用户并使用"飞象章鱼"提供的网络服务的个人。
@@ -94,6 +94,43 @@ export const text = `1．释义
 本协议中的标题仅为方便而设，不具法律或契约效果。
 对用户协议的解释、修改及更新权均属于飞象章鱼最终所有。
 `;
-export function getColorByType(type){
+export function getColorByType(type) {
   return COLOR[type];
+}
+export function getScrollTop() {
+  var scrollTop = 0,
+    bodyScrollTop = 0,
+    documentScrollTop = 0;
+  if (document.body) {
+    bodyScrollTop = document.body.scrollTop;
+  }
+  if (document.documentElement) {
+    documentScrollTop = document.documentElement.scrollTop;
+  }
+  scrollTop =
+    bodyScrollTop - documentScrollTop > 0 ? bodyScrollTop : documentScrollTop;
+  return scrollTop;
+}
+
+export function getScrollHeight() {
+  let bSH = 0,
+    dSH = 0,
+    scrollHeight = 0;
+  if (document.body) {
+    bSH = document.body.scrollHeight;
+  }
+  if (document.documentElement) {
+    dSH = document.documentElement.scrollHeight;
+  }
+  scrollHeight = bSH - dSH > 0 ? bSH : dSH;
+  return scrollHeight;
+}
+export function getWindowHeight() {
+  let windowHeight = 0;
+  if (document.compatMode === "CSS1Compat") {
+    windowHeight = document.documentElement.clientHeight;
+  } else {
+    windowHeight = document.body.clientHeight;
+  }
+  return windowHeight;
 }

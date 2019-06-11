@@ -4,6 +4,7 @@ export default {
   namespace: 'lesson',
 
   state: {
+    activeNav: 0,
     activeItem: 'action',
     list: []
   },

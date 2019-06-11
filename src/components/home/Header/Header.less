@@ -10,61 +10,82 @@
   width: 100%;
   font-size: 0.18rem;
   color: #fff;
-  padding: 0.12rem 3.6rem 0;
+  padding: 0 3.6rem 0;
   user-select: none;
   height: 1rem;
   background-color: #4b9bff;
+  z-index: 10;
   .logo-container{
-    width: 2.86rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    margin-right: 10%;
     .logo{
-      width: 1.54rem;
-    }
-    .logo-text{
-      display: flex;
-      flex-direction: column;
-      color: #fff;
-      font-size: 0.17rem;
+      width: 2.3rem;
     }
   }
   
   .nav{
     display: flex;
     align-items: center;
-    height: 0.18rem;
-    .item{
-      padding: 0 0.2rem;
-      border-right: 1px solid rgba(255,255,255,0.47);
+    height: 1rem;
+    .active{
+      background-color: #2481f6;
     }
-    .item:last-child{
-      border-right: none;
-    }
+    .item-container{
+      display: flex;
+      align-items: center;
+      height: 1rem;
+      .item{
+        display: block;
+        height: 0.22rem;
+        font-size: 0.22rem;
+        line-height: 0.22rem;
+        padding: 0 0.3rem;      
+        border-right: 1px solid rgba(255,255,255,0.47);
+      }
+     .none_border{
+       border-right: none;
+     }
+    }   
   }
   .login-container{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 2.4rem;
+    width: 1.4rem;
+    font-size: 0.18rem;
     font-weight: bold;
     .user{
       width: 0.32rem;
       height: 0.32rem;
       margin-right: 0.1rem;
     }
-    .create{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 0.7rem;
-      height: 0.42rem;
-      color: #fff;
-      font-size: 0.18rem;
-      background-color: #ffb000;
-      border-radius: 10px;
-      opacity: 0.91;
-      margin-left: 0.1rem;
+  }
+  .create{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    width: 0.7rem;
+    height: 0.86rem;
+    color: #fff;
+    font-size: 0.18rem;
+    background-color: #ffb000;
+    border-radius: 0 0 10px 10px;
+    opacity: 0.91;
+    padding-bottom: 0.18rem;
+    margin-left: 0.1rem;
+    margin-top: -0.28rem;
+  }
+  .consult{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 0.82rem;
+    height: 0.35rem;
+    background-color: #fe7007;
+    border-radius: 0.1rem;
+    .consult-icon{
+      margin-right: 0.05rem;
+      padding-right: 0.05rem;
+      border-right: 1px solid #eb5505;
     }
   }
 }

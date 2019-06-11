@@ -1,48 +1,77 @@
-import React from 'react';
-import {connect} from 'dva';
-import { routerRedux } from 'dva/router';
-import HomeView from './HomeView'
+import React from "react";
+import { connect } from "dva";
+import { routerRedux } from "dva/router";
+import HomeView from "./HomeView";
+import { getScrollTop, getWindowHeight, getScrollHeight } from "utils/util";
 
-class HomePage extends React.Component{
-  constructor(props){
+class HomePage extends React.Component {
+  constructor(props) {
     super(props);
     this.state = {
       showLogin: false,
-      showRegister: false
-    }
+      showRegister: false,
+      showDiscount: false,
+      bottom: "0"
+    };
   }
 
-  setShowLogin = (type) => {
+  setShowLogin = type => {
     this.setState({
       showLogin: type
-    })
-  }
+    });
+  };
 
   setShowRegister = type => {
     this.setState({
       showRegister: type
-    })
+    });
+  };
+
+  componentDidMount() {
+    document.addEventListener("scroll", e => {
+      const top = getScrollTop();
+      const wh = getWindowHeight();
+      const sh = getScrollHeight();
+      if (top > 600) {
+        this.setState({
+          showDiscount: true
+        });
+      } else {
+        this.setState({
+          showDiscount: false
+        });
+      }
+      if (top + wh === sh) {
+        this.setState({
+          bottom: "51px"
+        });
+      } else {
+        this.setState({
+          bottom: 0
+        });
+      }
+    });
   }
 
-
-  render(){
+  render() {
     return (
-      <HomeView 
+      <HomeView
         {...this.state}
-        setShowLogin={this.setShowLogin} 
+        setShowLogin={this.setShowLogin}
         setShowRegister={this.setShowRegister}
       />
-    )
+    );
   }
 }
 export default connect(
-  ({lesson})=>{
-   return {...lesson}
+  ({ lesson }) => {
+    return { ...lesson };
   },
-  (dispatch)=>{
+  dispatch => {
     return {
-      goTo(path){
+      goTo(path) {
         dispatch(routerRedux.push(path));
       }
-    }
-  })(HomePage)
+    };
+  }
+)(HomePage);

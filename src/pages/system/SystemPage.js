@@ -9,7 +9,9 @@ import Hand from 'img/hand-icon.png';
 import Fly from 'img/fly-icon.png';
 import RoundIcon from 'img/round-icon.png';
 import ApplyIcon from 'img/apply-icon.png';
-
+import CloseIcon from 'img/close-icon.png'
+import videojs from 'video.js';
+import 'video.js/dist/video-js.css'
 import './SystemPage.less';
 
 const prefixCls = 'system-page-container';
@@ -19,7 +21,8 @@ export default class SystemPage extends React.Component{
     super(props);
     this.state = {
       showLogin: false,
-      showRegister: false
+      showRegister: false,
+      showVideo: false
     }
   }
 
@@ -34,8 +37,67 @@ export default class SystemPage extends React.Component{
       showRegister: type
     })
   }
+  
+  beginVideo = () => {
+    this.setState({
+      showVideo: true
+    }, this.initVideo)
+  }
+
+  initVideo = () => {
+    const video = document.getElementById('video');
+    this.player = videojs(video, {
+      controls: true, // 是否显示控制条
+      // poster: 'xxx', // 视频封面图地址
+      preload: 'auto',
+      // autoplay: true,
+      language: 'zh-CN', // 设置语言
+      muted: false, // 是否静音
+      fluid: true,
+      inactivityTimeout: false,
+      controlBar: { // 设置控制条组件
+        //  设置控制条里面组件的相关属性及显示与否
+        'currentTimeDisplay':true,
+        'durationDisplay':true,
+        'remainingTimeDisplay':false,
+        playToggle: true,
+        volumePanel: {
+          inline: false,
+        },      
+        /* 使用children的形式可以控制每一个控件的位置，以及显示与否 */
+        children: [
+          {name: 'playToggle'}, // 播放按钮
+          {name: 'currentTimeDisplay'}, // 当前已播放时间
+          {name: 'progressControl'}, // 播放进度条
+          {name: 'durationDisplay'}, // 总时间
+          { // 倍数播放
+            name: 'playbackRateMenuButton',
+            'playbackRates': [0.5, 1, 1.5, 2, 2.5]
+          },
+          {
+            name: 'volumePanel', // 音量控制
+            inline: false, // 不使用水平方式
+          },
+          {name: 'FullscreenToggle'} // 全屏
+        ]
+      },
+      sources: [{
+        src: 'https://video.codemao.cn/lesson/boxgkk-L3-rpgyx-dg68gc-V2.0.mp4'
+    }]
+  }, function onPlayerReady(){
+  });
+  
+  }
+  
+  closeVideo = () => {
+    this.setState({
+      showVideo: false
+    });
+    this.player.pause();
+  }
+
   render(){
-    const  { showLogin, showRegister } = this.state;
+    const  { showLogin, showRegister, showVideo } = this.state;
     return (
       <div className={prefixCls}>   
         {
@@ -46,6 +108,18 @@ export default class SystemPage extends React.Component{
         }
         <div className="content-1">
           <Header setShowLogin={this.setShowLogin} setShowRegister={this.setShowRegister}  />
+
+          <div className="video-modal">
+            <div className={showVideo ? 'video-container' : 'video-container visiable'}>
+            <div className="video-title">
+              <span className="title">课程名称</span>
+              <img className="close-button" src={CloseIcon} onClick={this.closeVideo} />
+            </div>
+            <video id="video" className="video-js vjs-big-play-centered vjs-fluid"></video>
+            </div>
+          </div>
+           
+
           <div className="info">
             <img className="apply-icon" src={ApplyIcon} alt="" />
             <span className="blue">课程体系</span>
@@ -55,7 +129,7 @@ export default class SystemPage extends React.Component{
             <div className="intro">孩子学编程，和成人不一样</div>
             <div className="intro">覆盖6~17岁青少年编程学习全阶段</div>
           </div>
-          <div className="button">在线试听</div>
+          <div className="button" onClick={this.beginVideo}>在线试听</div>
         </div>
         <div className="content-2">
           <img className="teacher-icon" src={TeacherIcon} alt="" />
