@@ -21,15 +21,9 @@ const LessonView = props => {
   } = props;
   return (
     <div className={prefixCls}>
-      {showLogin ? <Login handleClose={() => setShowLogin(false)} /> : null}
+      {showLogin ? <Login handleClose={() => setShowLogin(false)} activeKey="login" /> : null}
       {showRegister ? (
-        <Register
-          handleClose={() => setShowRegister(false)}
-          goToLogin={() => {
-            setShowRegister(false);
-            setShowLogin(true);
-          }}
-        />
+        <Login handleClose={() => setShowRegister(false)} activeKey="register" />
       ) : null}
       <div className="content-1">
         <Header setShowLogin={setShowLogin} setShowRegister={setShowRegister} />

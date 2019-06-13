@@ -35,21 +35,10 @@ export default class LessonPage extends React.Component {
     const { showLogin, showRegister } = this.state;
     return (
       <div className={prefixCls}>
-        {showLogin ? (
-          <Login
-            className="login"
-            handleClose={() => this.setShowLogin(false)}
-          />
-        ) : null}
-        {showRegister ? (
-          <Register
-            handleClose={() => this.setShowRegister(false)}
-            goToLogin={() => {
-              this.setShowRegister(false);
-              this.setShowLogin(true);
-            }}
-          />
-        ) : null}
+       {showLogin ? <Login handleClose={() => this.setShowLogin(false)} activeKey="login" /> : null}
+      {showRegister ? (
+        <Login handleClose={() => this.setShowRegister(false)} activeKey="register" />
+      ) : null}
         <div className="content-1">
           <Header
             setShowLogin={this.setShowLogin}

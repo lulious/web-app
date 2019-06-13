@@ -27,7 +27,7 @@ class Header extends React.Component{
         <div className="nav">
           <div className={activeNav===0 ? 'item-container active': 'item-container'} onClick={()=>{goTo('/');setActiveNav({activeNav: 0})}}>
             <span className="item">首页</span></div>
-          <div className={activeNav===1 ? 'item-container active': 'item-container'} onClick={()=>{goTo('/');setActiveNav({activeNav: 1})}}>
+          <div className={activeNav===1 ? 'item-container active': 'item-container'} onClick={()=>{goTo('/discovery');setActiveNav({activeNav: 1})}}>
             <span className="item">发现</span></div>
           <div className={activeNav===2 ? 'item-container active': 'item-container'} onClick={()=>{goTo('/system');setActiveNav({activeNav: 2})}}>
             <span className="item">课程</span>

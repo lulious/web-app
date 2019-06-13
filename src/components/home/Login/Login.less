@@ -10,15 +10,12 @@
   z-index: 99;
   .container{
     position: relative;
-    width: 8.04rem;
-    height: 5rem;
-    margin: 1.59rem auto;
+    width: 8.02rem;
+    height: 6.19rem;
+    margin: 1rem auto;
     background-image: url('../../../../public/img/login-bg.png');
     background-size: 100% 100%;
-    .logo{
-      width: 2.15rem;
-      margin: 0.2rem;
-    }
+    padding: 1.5rem 0 0 1.74rem;
     .close-icon {
       width: 0.47rem;
       height: 0.47rem;;
@@ -26,23 +23,26 @@
       border-radius: 50%;
       position: absolute;
       top: -0.4rem;
-      right: -0.5rem;
+      right: -0.4rem;
     }
-    .info{
-      color: #0569e7;
-      font-size: 0.4rem;
-      margin-left: 0.8rem;
-      margin-top: 0.4rem;
-      letter-spacing: 0.1rem;
-    }
-    .eng-info{
-      font-size: 0.24rem;
-      color: #2b2d42;
-      margin-left: 1.2rem;
-      margin-bottom: 0.38rem;
+    .tabs{
+        width: 2.86rem;
+      .ant-tabs-tab{
+        width: 1.2rem;
+        color: #2e2e2e;
+        font-size: 0.18rem;
+        text-align: center;
+      }
+      .ant-tabs-tab-active{
+        color: #ffb000;
+      }
+      .ant-tabs-ink-bar{
+        width: 1.43rem;
+        background-color: #ffb000;
+      }
     }
     .login-form{
-      margin-left: 1rem;
+      margin-top: 0.2rem;
       .ant-input{
         width: 2.8rem;
         height: 0.36rem;
@@ -67,13 +67,65 @@
       height: 0.4rem;
       border: none;
       border-radius: 0.2rem;
-      background: linear-gradient(left, #4d96ff, #6ce6d3);
+      background: linear-gradient(left, #f25d02, #fca51e);
       margin: 0.16rem 0;
     }
     .login-form-forgot{
       color: #3678ff;
       border-left: 1px solid #c0c0c0;
       padding-left: 0.2rem;
+    }
+    .register-form{
+      .ant-input{
+        width: 2.8rem;
+        height: 0.36rem;
+        border-radius: 0.18rem;
+        padding-left: 0.5rem;
+      }
+      .ant-form-item{
+        margin-bottom: 0.12rem;
+      }
+      .ant-form-item-control{
+        line-height: 1;
+      }
+      .checkbox{
+        color: #535353;
+      }
+      .verification-container{
+        display: flex;
+        justify-content: space-between;
+        width: 2.8rem;
+        height: 0.36rem;
+        .verification{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 1.1rem;
+          height: 0.36rem;
+          border-radius: 0.2rem;
+          background-color: #ffb000;
+          border: none !important;
+        }
+        .verification-input{
+          input{
+            width: 1.8rem;
+          }
+        }
+      }
+    }
+    .register-form-button{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 2.8rem;
+      height: 0.4rem;
+      margin-bottom: 0.2rem;
+      border: none;
+      border-radius: 0.2rem;
+      background: linear-gradient(left, #f25d02, #fca51e);
+    }
+    .procotal{
+      color: #4d96ff;
     }
   }
   
