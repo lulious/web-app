@@ -3,7 +3,6 @@ import ApplyForm from 'components/apply/ApplyForm';
 import Header from 'components/home/Header/Header';
 import Footer from 'components/home/Footer/Footer';
 import Login from 'components/home/Login/Login';
-import Register from 'components/home/Register/Register';
 import ApplyIcon from 'img/apply-icon.png';
 import './ApplyPage.less';
 
@@ -33,12 +32,10 @@ export default class ApplyPage extends React.Component{
     const  { showLogin, showRegister } = this.state;
     return (
       <div className={prefixCls}>   
-        {
-          showLogin ? (<Login handleClose={()=>this.setShowLogin(false)} />):null
-        }
-        {
-          showRegister ? (<Register handleClose={()=>this.setShowRegister(false)} goToLogin={()=>{ this.setShowRegister(false);this.setShowLogin(true)}} />):null
-        } 
+        {showLogin ? <Login handleClose={() => this.setShowLogin(false)} activeKey="login" /> : null}
+      {showRegister ? (
+        <Login handleClose={() => this.setShowRegister(false)} activeKey="register" />
+      ) : null} 
         <div className="container">
           <Header setShowLogin={this.setShowLogin} setShowRegister={this.setShowRegister}  />
           <div className="title-container">

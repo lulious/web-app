@@ -4,9 +4,9 @@ import {
 } from 'antd';
 import PhoneIcon from 'img/register-phone-icon.png';
 import PassIcon from 'img/password-icon.png';
+import CodeIcon from 'img/code-icon.png';
 import {register, code} from 'services/query';
-import './Register.less';
-import { text } from 'utils/util'
+import { text } from 'utils/util';
 
 class RegisterForm extends React.Component {
   constructor(props){
@@ -89,10 +89,10 @@ class RegisterForm extends React.Component {
   }
 
   render() {
-    const { goToLogin } = this.props;
     const { getFieldDecorator } = this.props.form;
     return (
       <Form onSubmit={this.handleSubmit} className="register-form">
+         
         <Form.Item>
           {getFieldDecorator('phone', {
             rules: [{ required: true, message: '请输入手机号！' }],
@@ -105,12 +105,11 @@ class RegisterForm extends React.Component {
             rules: [{ required: true, message: '请输入验证码！' }],
           })(
             <div className="verification-container">
-              <Input className="verification-input" prefix={<img src={PassIcon} alt="" />} type="password" placeholder="输入验证码" />
+              <Input className="verification-input" prefix={<img src={CodeIcon} alt="" />} type="password" placeholder="输入验证码" />
               <Button type="primary" className="verification" onClick={this.getCode}>验证码</Button>
             </div>
           )}
         </Form.Item>
-        <div className="title">请设置登录密码</div>
         <Form.Item>
           {getFieldDecorator('password', {
             rules: [{ 
@@ -136,6 +135,7 @@ class RegisterForm extends React.Component {
         <Button type="primary" htmlType="submit" className="register-form-button" >
           注册
         </Button>
+        
         <Form.Item>
           {getFieldDecorator('checkbox', {
             rules: [{ required: true, message: '请勾选已阅读注册协议' }],
@@ -143,11 +143,6 @@ class RegisterForm extends React.Component {
             <Checkbox className="checkbox" onChange={this.onChange}>已阅读<span className="procotal" onClick={this.showProcotal}>注册协议</span></Checkbox>
           )}
         </Form.Item> 
-        <div className="gradient">
-          <Button type="primary" className="go-to-login-button"  onClick={goToLogin}>
-          已有账号，去登录
-         </Button>
-        </div>
       </Form>
     );
   }

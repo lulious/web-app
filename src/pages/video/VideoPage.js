@@ -2,7 +2,6 @@ import React from 'react';
 import Header from 'components/home/Header/Header';
 import Footer from 'components/home/Footer/Footer';
 import Login from 'components/home/Login/Login';
-import Register from 'components/home/Register/Register';
 import VideoCard from 'components/video/VideoCard';
 import VideoList from 'components/video/VideoList';
 import ApplyIcon from 'img/apply-icon.png';
@@ -46,12 +45,10 @@ export default class VideoPage extends React.Component{
     const  { showLogin, showRegister, lessonId } = this.state;
     return (
       <div className={prefixCls}>   
-        {
-          showLogin ? (<Login className="login" handleClose={()=>this.setShowLogin(false)} />):null
-        }
-        {
-          showRegister ? (<Register handleClose={()=>this.setShowRegister(false)} goToLogin={()=>{ this.setShowRegister(false);this.setShowLogin(true)}} />):null
-        }
+        {showLogin ? <Login handleClose={() => this.setShowLogin(false)} activeKey="login" /> : null}
+      {showRegister ? (
+        <Login handleClose={() => this.setShowRegister(false)} activeKey="register" />
+      ) : null}
         <div className="content">
           <Header setShowLogin={this.setShowLogin} setShowRegister={this.setShowRegister}  />
           <div className="info">

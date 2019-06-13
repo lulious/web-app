@@ -4,7 +4,6 @@ import Lesson from "img/gongkaike_02.png";
 import System from "img/tixi_03.png";
 import LessonForm from "components/home/LessonForm/LessonForm";
 import Login from "components/home/Login/Login";
-import Register from "components/home/Register/Register";
 import Header from "components/home/Header/Header";
 import FixedForm from "components/home/FixedForm/FixedForm";
 import Footer from "components/home/Footer/Footer";
@@ -21,15 +20,9 @@ const LessonView = props => {
   } = props;
   return (
     <div className={prefixCls}>
-      {showLogin ? <Login handleClose={() => setShowLogin(false)} /> : null}
+      {showLogin ? <Login handleClose={() => setShowLogin(false)} activeKey="login" /> : null}
       {showRegister ? (
-        <Register
-          handleClose={() => setShowRegister(false)}
-          goToLogin={() => {
-            setShowRegister(false);
-            setShowLogin(true);
-          }}
-        />
+        <Login handleClose={() => setShowRegister(false)} activeKey="register" />
       ) : null}
       <div className="content-1">
         <Header setShowLogin={setShowLogin} setShowRegister={setShowRegister} />

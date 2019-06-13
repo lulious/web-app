@@ -22,7 +22,7 @@ class FixedFormItem extends React.Component {
     const { getFieldDecorator } = this.props.form;
     const cls = classNames({
       [className]: true,
-      container: true
+      component_fixed_form_container: true
     });
     return (
       <div className={cls} style={{bottom: bottom}}>

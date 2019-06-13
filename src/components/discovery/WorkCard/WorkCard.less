@@ -1,0 +1,63 @@
+@prefixCls: work-card-container;
+.@{prefixCls}{
+  width: 2.9rem;
+  height: 3.2rem;
+  box-shadow: 0 0 12px 0 rgba(0,0,0,0.1);
+  position: relative;
+  border-radius: 0.1rem;
+  .cover-img{
+    width: 2.9rem;
+  }
+  .open-source-icon{
+    position: absolute;
+    top: 0;
+    left: 0.1rem;
+  }
+  .name{
+    margin: 0.1rem 0.15rem;
+    font-size: 0.18rem;
+    color: #151515;
+  }
+  .count-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0.15rem;
+    color: #a5a5a5 ;
+    font-size: 0.16rem;
+    .scan-container{
+      display: flex;
+      align-items: center;
+      width: 1rem;
+      .scan-icon{
+        width: 0.22rem;
+        height: 0.14rem;
+        margin-right: 0.1rem;
+      }
+    }
+    .pick-container{
+      display: flex;
+      align-items: center;
+      width: 1rem;
+      .pick-icon{
+        width: 0.19rem;
+        height: 0.19rem;
+        margin-right: 0.1rem;
+      }
+    }
+  }
+  .user-info{
+    display: flex;
+    align-items: center;
+    height: 0.56rem;
+    margin: 0.1rem 0.15rem;
+    border-top: 1px solid #ededed;
+    color: #212121;
+    font-size: 0.14rem;
+    .user-icon{
+      width: 0.32rem;
+      height: 0.32rem;
+      margin-right: 0.1rem;
+    }
+  }
+}

@@ -1,0 +1,116 @@
+@prefixCls: discovery-page-container;
+
+.@{prefixCls}{
+  width: 100%;
+  font-size: 14px;
+  position: relative;
+  overflow: hidden;
+  >.container{
+    width: 100%; 
+    margin-top: 1.4rem;
+    .sort{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 0.22rem;
+      font-weight: 400;
+      color: #434343;
+      .sort-item{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-right: 0.2rem;
+        .title{
+          display: inline-block;
+          margin-top: 0.1rem;
+        }
+        &:last-child{
+          margin-right: 0;
+        }
+      }
+    }  
+    .works-container{
+      width: 12.12rem;
+      margin: 0.58rem auto 0;
+      border-top: 1px solid #d4d4d4;
+      padding-top: 0.16rem;
+      margin-bottom: 1.2rem;
+      .head{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .left{
+          display: flex;
+          align-items: center;
+          .work-icon{
+            width: 0.48rem;
+            height: 0.39rem;
+            margin-right: 0.1rem;
+          }
+          .title{
+            font-size: 0.3rem;
+            font-weight: 600;
+            color: #212121;
+            margin-right: 0.2rem;
+          }
+          .tab{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 1.8rem;
+            height: 0.28rem;
+            font-size: 0.18rem;
+            font-weight: 400;
+            color: #2686fe;
+          }
+          .tab-active{
+            background-color: #4b9bff;
+            color: #ffffff;
+            border-top-left-radius: 0.1rem;
+            border-top-right-radius: 0.1rem;
+          }
+        }
+      }
+      .filter{
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        font-size: 0.16rem;
+        color: #7e7e7e;
+        margin: 0.1rem 0 0.2rem;
+        .br{
+          width: 1px;
+          height: 0.16rem;
+          background-color: #7e7e7e;
+        }
+        .filter-item{
+          margin: 0 0.1rem;
+        }
+        .filter-active{
+          color: #2686fe;
+        }
+      }
+      .work-cards{
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin-bottom: 0.4rem;
+        .card-item{
+          margin-bottom: 0.2rem;
+        }
+      }
+      .pagination{
+        display: flex;
+        justify-content: center;
+        margin-bottom: 0.4rem;
+        .pagination-button{
+          padding: 0 0.1rem;
+        }
+      }
+    }
+  }
+  
+  .fixed-form{
+    position: fixed;
+  }
+}
