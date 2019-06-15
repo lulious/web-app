@@ -50,19 +50,19 @@ const DiscoveryView = props => {
       <div className="container">
         <div className="sort">
           <div className="sort-item">
-            <img src={Kind_1} alt="" />
+            <img className="sort-item-img" src={Kind_1} alt="" />
             <span className="title">考级答题</span>
           </div>
           <div className="sort-item">
-            <img src={Kind_2} alt="" />
+            <img className="sort-item-img" src={Kind_2} alt="" />
             <span className="title">考级答题</span>
           </div>
           <div className="sort-item">
-            <img src={Kind_3} alt="" />
+            <img className="sort-item-img" src={Kind_3} alt="" />
             <span className="title">科技活动</span>
           </div>
           <div className="sort-item">
-            <img src={Kind_4} alt="" />
+            <img className="sort-item-img" src={Kind_4} alt="" />
             <span className="title">智慧商城</span>
           </div>
         </div>
