@@ -4,6 +4,7 @@ import Lesson from "img/gongkaike_02.png";
 import System from "img/tixi_03.png";
 import LessonForm from "components/home/LessonForm/LessonForm";
 import Login from "components/home/Login/Login";
+import ApplySuccess from "components/home/ApplySuccess/ApplySuccess";
 import Header from "components/home/Header/Header";
 import FixedForm from "components/home/FixedForm/FixedForm";
 import Footer from "components/home/Footer/Footer";
@@ -15,18 +16,24 @@ const LessonView = props => {
     setShowLogin,
     showRegister,
     setShowRegister,
+    showApplySuccess,
+    setShowApplySuccess,
     bottom,
     showDiscount
   } = props;
   return (
     <div className={prefixCls}>
+      { showApplySuccess ? (
+        <ApplySuccess lesson="智能硬件" handleClose={() => setShowApplySuccess(false)} />
+      ):null}
+      
       {showLogin ? <Login handleClose={() => setShowLogin(false)} activeKey="login" /> : null}
       {showRegister ? (
         <Login handleClose={() => setShowRegister(false)} activeKey="register" />
       ) : null}
       <div className="content-1">
         <Header setShowLogin={setShowLogin} setShowRegister={setShowRegister} />
-        <LessonForm className="lesson-form" />
+        <LessonForm className="lesson-form" applySuccess={() => setShowApplySuccess(true)}/>
       </div>
       <div className="content-2">
         <img className="lesson-img" src={Lesson} alt="" />

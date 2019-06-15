@@ -11,6 +11,7 @@ class HomePage extends React.Component {
       showLogin: false,
       showRegister: false,
       showDiscount: false,
+      showApplySuccess: false,
       bottom: "0"
     };
   }
@@ -24,6 +25,12 @@ class HomePage extends React.Component {
   setShowRegister = type => {
     this.setState({
       showRegister: type
+    });
+  };
+
+  setShowApplySuccess = type => {
+    this.setState({
+      showApplySuccess: type
     });
   };
 
@@ -59,6 +66,7 @@ class HomePage extends React.Component {
         {...this.state}
         setShowLogin={this.setShowLogin}
         setShowRegister={this.setShowRegister}
+        setShowApplySuccess={this.setShowApplySuccess}
       />
     );
   }

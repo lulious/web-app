@@ -3,18 +3,25 @@ import classNames from "classnames";
 import { Form, Input, Button, Select } from "antd";
 import { code } from "services/query";
 import PhoneIcon from "img/phone.png";
+import ApplySuccess from "img/apply-success.png";
 import "./LessonForm.less";
 const prefix = "lesson-form-container";
 const { Option } = Select;
 class LessonForm extends React.Component {
   handleSubmit = e => {
     e.preventDefault();
+    this.props.applySuccess();
     this.props.form.validateFields((err, values) => {
       if (!err) {
+        
         console.log("Received values of form: ", values);
         // 判断用户和密码 与 后台是否符合
         const { phone, grade, code } = values;
+        if(phone && code){
+          this.props.applySuccess();
+        }
       }
+      
     });
   };
 
@@ -87,7 +94,7 @@ class LessonForm extends React.Component {
             </Select>
           </Form.Item>
           <Form.Item>
-            <Button className="button" onClick="">
+            <Button className="button" htmlType="submit">
               立即领取
             </Button>
           </Form.Item>

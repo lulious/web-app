@@ -4,12 +4,12 @@
   justify-content: center;
   align-items: center;
   width: 3.4rem;
-  height: 3.72rem;
+  min-width: 260px;
   background-color: #ffffff;
   font-size: 0.3rem;
   color:#232323;
   border-radius: 10px;
-  padding-top: 0.2rem;
+  padding: 0.2rem 0 0.1rem;
   .orange{
     color: #f36204;
     font-size: 0.36rem;
@@ -24,9 +24,14 @@
     }
     .ant-input{
       width: 2.5rem;
+      min-width: 200px;
       height: 0.43rem;
+      min-height: 40px;
       background-color: #f2f2f2;
       border: none;
+      &:hover{
+        border: 1px solid #3f9ffc;
+      }
     }
     .verification-container{
       position: relative;
@@ -34,8 +39,9 @@
         display: flex;
         align-items: center;
         position: absolute;
-        top: 0.075rem;
+        top: 50%;
         right: 0.1rem;
+        transform: translateY(-50%);
         height: 0.28rem;
         color: #3f9ffc;
         border-left: 1px solid #b8b8b8;
@@ -44,12 +50,16 @@
     }
     .ant-select{
       width: 2.5rem;
+      min-width: 200px;
       height: 0.43rem;
+      min-height: 40px;
       background-color: #f2f2f2;
     }
     .ant-select-selection{
       width: 2.5rem;
+      min-width: 200px;
       height: 0.43rem;
+      min-height: 40px;
       background-color: #f2f2f2;
       border-color: #f2f2f2;
     }
@@ -57,10 +67,13 @@
       display: flex !important;
       align-items: center;
       height: 0.43rem;
+      min-height: 40px;
     }
     .button{
       width: 2.5rem;
+      min-width: 200px;
       height: 0.43rem;
+      min-height: 40px;
       font-size: 0.24rem;
       color: #ffffff;
       background:  linear-gradient(left, #f25d02,#ffbf28);

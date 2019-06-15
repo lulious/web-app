@@ -1,0 +1,41 @@
+@prefixCls: component-home-ApplySuccess;
+.@{prefixCls}{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.79);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  .container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 6.5rem;
+    height: 6.21rem;
+    margin: 1rem auto;
+    background-image: url('../../../../public/img/apply-success.png');
+    background-size: 100% 100%;
+    padding-top: 4.2rem;
+    .info{
+      font-size: 0.27rem;
+      color: #666666;
+      text-align: center;
+      .red{
+        color: #f25d02;
+      }
+    }
+    .button{
+      width: 2.5rem;
+      height: 0.5rem;
+      font-size: 0.24rem;
+      color: #ffffff;
+      background:  linear-gradient(left, #f25d02,#ffbf28);
+      border: none;
+      margin-top: 0.2rem;
+    }
+  }
+  
+}
