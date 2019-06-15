@@ -35,7 +35,6 @@ const DiscoveryView = props => {
     bottom,
     tabIndex,
     filterActive,
-    showDiscount,
     onPageChange,
     onTabChange,
     onFilterChange

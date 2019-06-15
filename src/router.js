@@ -3,6 +3,7 @@ import { Router, Route, Switch } from 'dva/router';
 import LessonPage from './pages/lesson/LessonPage';
 import HomePage from './pages/home/HomePage';
 import DiscoveryPage from './pages/discovery/DiscoveryPage';
+import DetailPage from './pages/discovery-detail/DetailPage';
 import ApplyPage from './pages/apply/ApplyPage';
 import LessonSystemPage from './pages/lesson-system/LessonPage';
 import PayPage from './pages/pay/PayPage';
@@ -15,6 +16,7 @@ function RouterConfig({ history }) {
       <Switch>
         <Route path="/" exact component={HomePage} />
         <Route path="/discovery" exact component={DiscoveryPage} />
+        <Route path="/discovery/:id" exact component={DetailPage} />
         <Route path="/lesson" exact component={LessonPage} />
         <Route path="/apply" exact component={ApplyPage} />
         <Route path="/system" exact component={LessonSystemPage} />

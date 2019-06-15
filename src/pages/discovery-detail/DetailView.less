@@ -1,0 +1,206 @@
+@prefixCls: detail-page-container;
+
+.@{prefixCls}{
+  width: 100%;
+  font-size: 14px;
+  position: relative;
+  overflow: hidden;
+  >.container{
+    width: 12.02rem; 
+    margin: 1.4rem auto;
+    .content-container{
+      display: flex;
+      width: 100%;
+      height: 7.16rem;
+      .work-container{
+        width: 7.94rem;
+        .video{
+          margin-bottom: 0.2rem;
+          .video-cover{
+            width: 7.95rem;
+            height: 5.99rem;
+          }
+        }
+        .video-info{
+          display: flex;
+          justify-content: space-between;
+          .info{
+            .title{
+              font-size: 0.3rem;
+              font-weight: 400;
+              color: #4e4e4e;
+            }
+            .scan-count{
+              display: flex;
+              align-items: center;
+              font-size: 0.16rem;
+              color: #787878;
+              .br{
+                width: 1px;
+                height: 0.16rem;
+                background-color: #cdcdcd;
+                margin: 0 0.1rem;
+              }
+            }
+          }
+          .operation{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 3.88rem;
+            font-size: 0.16rem;
+            color: #212121;
+            .collection, .buy, .pick , .share{
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+            }
+            .top{
+              display: flex;
+              align-items: center;
+              margin-bottom: 0.1rem;
+            }
+            .count{
+              font-size: 0.14rem;
+              color: #b8b8b8;
+            }
+            .pick-icon{
+              width: 0.24rem;
+              height: 0.26rem;
+              margin-right: 0.05rem;
+            }
+            .collection-icon{
+              width: 0.27rem;
+              height: 0.27rem;
+              margin-right: 0.05rem;
+            }
+            .buy-icon{
+              width: 0.28rem;
+              height: 0.27rem;
+              margin-right: 0.05rem;
+            }
+            .share-icon{
+              width: 0.23rem;
+              height: 0.23rem;
+              margin-right: 0.05rem;
+            }
+
+          }
+        }
+      }
+      .work-info{
+        margin-left: 0.3rem;
+        .user-info{
+          display: flex;
+          .user-icon{
+            width: 0.81rem;
+            height: 0.81rem;
+            margin-right: 0.2rem;
+          }
+          .user-name{
+            font-size: 0.24rem;
+            font-weight: 400;
+            color: #202020;
+          }
+          .user-intro{
+            font-size: 0.16rem;
+            font-weight: 400;
+            color: #202020;
+            margin: 0.15rem 0;
+          }
+          .button{
+            width: 1.7rem;
+          }
+        }
+        .tabs-container{
+          margin-top: 0.3rem;
+          
+          .ant-tabs-tab{
+            font-size: 0.18rem;
+          }
+          .work-intro, .operation-intro{
+            font-size: 0.18rem;
+            color: #4d4e4e;
+            margin-bottom: 0.2rem;
+           .title{
+            font-size: 0.2rem;
+            margin-bottom: 0.1rem;
+           }
+          }
+         
+        }
+      }
+    }
+    .bottom-container{
+      display: flex;
+      width: 12.02rem; 
+      .comment-container{
+        width: 8rem;
+        margin-right: 0.4rem;
+        .title{
+          font-size: 0.18rem;
+          color: #181818;
+          font-weight: 400;
+          padding-bottom: 0.1rem;
+          border-bottom: 1px solid #dddddd;
+          margin-bottom: 0.2rem;
+        }
+        .comment-input{
+          display: flex;
+          width: 100%;
+          .user-icon{
+            width: 0.66rem;
+            height: 0.66rem;
+            margin-right: 0.2rem;
+          }
+          .textarea-container{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            width: 6.26rem;
+            margin-right: 0.2rem;
+            font-size: 0.14rem;
+            color: #cdcdcd;
+            .textarea{
+              height: 0.66rem;
+              margin-bottom: 0.1rem;
+            }
+            .ant-input:focus{
+              border-color: #fea509;
+              box-shadow: 0 0 0 2px rgba(254, 165, 9, 0.2);
+            }
+            .ant-input:hover{
+              border-color: #fea509;
+              box-shadow: 0 0 0 2px rgba(254, 165, 9, 0.2);
+            }
+          }
+          .button{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 0.72rem;
+            height: 0.66rem;
+            background-color: #fea509;
+            border: none;
+          }
+        }
+        .comment-list{
+          padding-top: 0.3rem;
+        }
+       
+      }
+      .recommand-container{
+        width: 100%;
+        .title{
+          font-size: 0.24rem;
+          color: #181818;
+          font-weight: 400;
+        }
+      }
+    }
+  }
+  
+  .fixed-form{
+    position: fixed;
+  }
+}

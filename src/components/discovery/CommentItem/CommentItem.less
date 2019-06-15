@@ -1,0 +1,55 @@
+@prefixCls: comment-item-container;
+.@{prefixCls}{
+  display: flex;
+  width: 100%;
+  padding: 0.2rem 0;
+  border-bottom: 1px solid #eeeeee;
+  .user-icon{
+    width: 0.66rem;
+    height: 0.66rem;
+    margin-right: 0.2rem;
+  }
+  .container{
+    width: 100%;
+    font-size: 0.14rem;
+    .name{
+      color: #0b6ae0;
+      margin-bottom: 0.2rem;
+    }
+    .comments{
+      color: #181818;
+      margin-bottom: 0.2rem;
+    }
+    .bottom{
+      display: flex;
+      justify-content: space-between;
+      .date{
+        color: #adadad;
+      }
+      .pick-reply{
+        display: flex;
+        font-size: 0.12rem;
+        color: #adadad;
+        .pick{
+          display: flex;
+          align-items: center;
+          margin-right: 0.1rem;
+          .pick-icon{
+            width: 0.14rem;
+            height: 0.14rem;
+            margin-right: 0.05rem;
+          }
+        }
+        .reply{
+          display: flex;
+          align-items: center;
+          .reply-icon{
+            width: 0.12rem;
+            height: 0.12rem;
+            margin-right: 0.05rem;
+          }
+        }
+      }
+    }
+  }
+}

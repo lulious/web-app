@@ -1,0 +1,58 @@
+@prefixCls: recommand-item-container;
+.@{prefixCls}{
+  display: flex;
+  padding: 0.2rem 0;
+  border-bottom: 1px dashed #dddddd;
+  .cover-img{
+    width: 1.2rem;
+    height: 1.2rem;
+    margin-right: 0.2rem;
+  }
+  .right{
+    width: 100%;
+    .name{
+      font-size: 0.18rem;
+      color: #181818;
+      margin-bottom: 0.15rem;
+    }
+    .scan-pick{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      margin-bottom: 0.2rem;
+      padding-right: 0.1rem;
+      font-size: 0.16rem;
+      color: #adadad;
+      .scan{
+        display: flex;
+        align-items: center;
+        .scan-icon{
+          width: 0.22rem;
+          height: 0.14rem;
+          margin-right: 0.05rem;
+        }
+      }
+      .pick{
+        display: flex;
+        align-items: center;
+        .pick-icon{
+          width: 0.19rem;
+          height: 0.19rem;
+          margin-right: 0.05rem;
+        }
+      }
+    }
+    .user-info{
+      display: flex;
+      align-items: center;
+      font-size: 0.14rem;
+      color: #181818;
+      .user-icon{
+        width: 0.32rem;
+        height: 0.32rem;
+        margin-right: 0.1rem;
+      }
+    }
+  }
+}
