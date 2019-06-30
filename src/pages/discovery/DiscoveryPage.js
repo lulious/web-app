@@ -44,6 +44,11 @@ class DiscoveryPage extends React.Component {
     })
   }
 
+  goToDetail = id => {
+    // this.props.goTo(`discovery/${id}`)
+    this.props.goTo(`discovery/1`)
+  }
+
   componentDidMount() {
     document.addEventListener("scroll", e => {
       const top = getScrollTop();
@@ -70,6 +75,7 @@ class DiscoveryPage extends React.Component {
         onPageChange={this.onPageChange}
         onTabChange={this.onTabChange}
         onFilterChange={this.onFilterChange}
+        goToDetail={this.goToDetail}
       />
     );
   }

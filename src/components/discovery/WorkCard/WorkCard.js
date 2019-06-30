@@ -8,13 +8,13 @@ import './WorkCard.less';
 const prefixCls = 'work-card-container';
 const WorkCard = (props) => {
   console.log(props)
-  const { className, isOpenSource, coverImg, name, userName, userIcon, scan, pick} = props;
+  const { className, isOpenSource, coverImg, name, userName, userIcon, scan, pick, goToDetail} = props;
   const cls = classNames({
     [prefixCls]: true,
     [className]: true
   })
   return (
-    <div className={cls}>
+    <div className={cls} onClick={goToDetail}>
       <img className="cover-img" src={coverImg} alt="" />
       {isOpenSource ? (
         <img className="open-source-icon" src={OpenSource} alt="" />

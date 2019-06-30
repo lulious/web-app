@@ -17,6 +17,7 @@ import Footer from "components/home/Footer/Footer";
 import CommentItem from "components/discovery/CommentItem/CommentItem";
 import RecommandItem from "components/discovery/RecommandItem/RecommandItem";
 
+
 const prefixCls = "detail-page-container";
 const { TabPane } = Tabs;
 const { TextArea } = Input;
@@ -41,7 +42,11 @@ const DetailView = props => {
     filterActive,
     onPageChange,
     onTabChange,
-    onFilterChange
+    onFilterChange,
+    addComment,
+    checkLength,
+    oddLength,
+    text
   } = props;
   return (
     <div className={prefixCls}>
@@ -60,7 +65,9 @@ const DetailView = props => {
         <div className="content-container">
           <div className="work-container">
             <div className="video">
-              <img className="video-cover" src={Video_01} alt="" />
+              <video id="video" className="video-cover video-js vjs-big-play-centered vjs-fluid"></video>
+
+              {/* <img className="video-cover" src={Video_01} alt="" /> */}
             </div>
             <div className="video-info">
               <div className="info">
@@ -143,10 +150,10 @@ const DetailView = props => {
             <div className="comment-input">
               <img className="user-icon" src={UserIcon} alt="" />
               <div className="textarea-container">
-              <TextArea className="textarea" rows={3} maxLength="200" />
-              <div>还可以输入200字</div>
+              <TextArea className="textarea" rows={3} maxLength="200" value={text} onChange={checkLength} />
+              <div>还可以输入{oddLength}字</div>
               </div>
-              <Button className="button" type="primary">提交评论</Button>
+              <Button className="button" type="primary" onClick={addComment}>提交评论</Button>
             </div>
             <div className="comment-list">
               {[1,1,1,1,1,1].map(item => {

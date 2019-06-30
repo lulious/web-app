@@ -6,7 +6,6 @@ import './RecommandItem.less';
 
 const prefixCls = 'recommand-item-container';
 const RecommandItem = (props) => {
-  console.log(props)
   const { className, coverImg, name, userName, userIcon, scan, pick} = props;
   const cls = classNames({
     [prefixCls]: true,

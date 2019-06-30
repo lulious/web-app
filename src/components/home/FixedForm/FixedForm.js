@@ -13,6 +13,8 @@ class FixedFormItem extends React.Component {
         console.log("Received values of form: ", values);
         // 判断用户和密码 与 后台是否符合
         const { phone } = values;
+        
+        this.props.applySuccess();
       }
     });
   };
@@ -46,7 +48,7 @@ class FixedFormItem extends React.Component {
           </Form.Item>
          
           <Form.Item>
-            <Button className="button" onClick="">
+            <Button className="button" htmlType="submit">
               立即领取
             </Button>
           </Form.Item>

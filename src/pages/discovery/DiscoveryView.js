@@ -37,7 +37,8 @@ const DiscoveryView = props => {
     filterActive,
     onPageChange,
     onTabChange,
-    onFilterChange
+    onFilterChange,
+    goToDetail
   } = props;
   return (
     <div className={prefixCls}>
@@ -91,7 +92,7 @@ const DiscoveryView = props => {
             {
               [1,1,1,1,1,1,1,1,1,1,1,1].map(item => {
                 return (
-                  <WorkCard className="card-item" isOpenSource="true" coverImg={CoverImg} name="作品名称" userName="用户" userIcon={UserIcon} scan="729" pick="873"  />
+                  <WorkCard className="card-item" isOpenSource="true" coverImg={CoverImg} name="作品名称" userName="用户" userIcon={UserIcon} scan="729" pick="873" goToDetail={goToDetail}  />
                 )
               })
             }

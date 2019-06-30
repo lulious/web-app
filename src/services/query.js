@@ -18,3 +18,11 @@ export function code(data){
 export function join(data, token){
   return post('/join/', data, token);
 }
+
+export function getWorkDetail(data){
+  return post('/getWorkDetail/', data);
+}
+
+export function addComment(data){
+  return post('/addComment/', data);
+}

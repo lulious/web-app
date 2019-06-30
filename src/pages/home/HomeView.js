@@ -42,7 +42,7 @@ const LessonView = props => {
         <img className="system-img" src={System} alt="" />
       </div>
       {showDiscount ? (
-        <FixedForm className="fixed-form" bottom={bottom} />
+        <FixedForm className="fixed-form" bottom={bottom} applySuccess={() => setShowApplySuccess(true)} />
       ) : null}
       <Footer />
     </div>

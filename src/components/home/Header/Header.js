@@ -40,7 +40,8 @@ class Header extends React.Component{
           <span onClick={()=>setShowLogin(true)}>登录</span>/
           <span onClick={()=>setShowRegister(true)}>注册</span>
         </div>
-        <span className="create" onClick={()=>this.goToCreate()}>创作</span>
+        {/* <span className="create" onClick={()=>this.goToCreate()}>创作</span> */}
+        <a className="create" href="http://119.3.234.131:8601" target="_blank">创作</a>
         <div className="consult" onClick={()=>goTo('/')}>
           <img className="consult-icon" src={Consult} alt="" />
           咨询</div>
