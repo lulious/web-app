@@ -1,4 +1,6 @@
 import React from "react";
+import { connect } from "dva";
+import { routerRedux } from "dva/router";
 import Header from "components/home/Header/Header";
 import Footer from "components/home/Footer/Footer";
 import Login from "components/home/Login/Login";
@@ -10,7 +12,7 @@ import Lesson5 from "img/bg_05.png";
 import "./LessonPage.less";
 
 const prefixCls = "system-page-container";
-export default class LessonPage extends React.Component {
+class LessonPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -69,7 +71,7 @@ export default class LessonPage extends React.Component {
               <span className="apply_count">
                 已有<span className="red">2364</span>人报名
               </span>
-              <div className="button">立即预约</div>
+              <div className="button" onClick={()=>{this.props.goTo('/')}}>立即预约</div>
             </div>
           </div>
         </div>
@@ -95,7 +97,7 @@ export default class LessonPage extends React.Component {
               <span className="apply_count">
                 已有<span className="red">7354</span>人报名
               </span>
-              <div className="button">立即预约</div>
+              <div className="button" onClick={()=>{this.props.goTo('/')}}>立即预约</div>
             </div>
           </div>
         </div>
@@ -122,7 +124,7 @@ export default class LessonPage extends React.Component {
               <span className="apply_count">
                 已有<span className="red">25979</span>人报名
               </span>
-              <div className="button">立即预约</div>
+              <div className="button" onClick={()=>{this.props.goTo('/')}}>立即预约</div>
             </div>
           </div>
         </div>
@@ -148,7 +150,7 @@ export default class LessonPage extends React.Component {
               <span className="apply_count">
                 已有<span className="red">25979</span>人报名
               </span>
-              <div className="button">立即预约</div>
+              <div className="button" onClick={()=>{this.props.goTo('/')}}>立即预约</div>
             </div>
           </div>
           <img className="lesson_4" src={Lesson4} alt="" />
@@ -177,7 +179,7 @@ export default class LessonPage extends React.Component {
               <span className="apply_count">
                 已有<span className="red">3598</span>人报名
               </span>
-              <div className="button">立即预约</div>
+              <div className="button" onClick={()=>{this.props.goTo('/')}}>立即预约</div>
             </div>
           </div>
         </div>
@@ -189,3 +191,15 @@ export default class LessonPage extends React.Component {
     );
   }
 }
+export default connect(
+  ({ lesson }) => {
+    return { ...lesson };
+  },
+  dispatch => {
+    return {
+      goTo(path) {
+        dispatch(routerRedux.push(path));
+      }
+    };
+  }
+)(LessonPage);
