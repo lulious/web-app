@@ -46,7 +46,7 @@ class DiscoveryPage extends React.Component {
 
   goToDetail = id => {
     // this.props.goTo(`discovery/${id}`)
-    this.props.goTo(`discovery/1`)
+    this.props.goTo(`discovery/2`)
   }
 
   componentDidMount() {

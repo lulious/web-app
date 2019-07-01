@@ -19,10 +19,17 @@ export function join(data, token){
   return post('/join/', data, token);
 }
 
-export function getWorkDetail(data){
-  return post('/getWorkDetail/', data);
+export function getWorkDetail(id){
+  return get(`/EduPlat/public_Detail_Class/${id}`);
+}
+
+export function getComments(id, page){
+  return get(`/comment/`,{
+    video: id,
+    page:page
+  });
 }
 
 export function addComment(data){
-  return post('/addComment/', data);
+  return post('/comment/', data);
 }

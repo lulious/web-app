@@ -90,14 +90,14 @@ const DiscoveryView = props => {
           </div>
           <div className="work-cards">
             {
-              [1,1,1,1,1,1,1,1,1,1,1,1].map(item => {
+              [1,1,1,1].map(item => {
                 return (
                   <WorkCard className="card-item" isOpenSource="true" coverImg={CoverImg} name="作品名称" userName="用户" userIcon={UserIcon} scan="729" pick="873" goToDetail={goToDetail}  />
                 )
               })
             }
           </div>
-          <Pagination className="pagination" total={500} itemRender={itemRender} onChange={onPageChange} />
+          {/* <Pagination className="pagination" total={500} itemRender={itemRender} onChange={onPageChange} /> */}
         </div>
       </div>
      

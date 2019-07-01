@@ -7,6 +7,16 @@ import "./LessonForm.less";
 const prefix = "lesson-form-container";
 const { Option } = Select;
 class LessonForm extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      btnText: '获取验证码',
+      seconds: 60,
+      clicked: true,
+      handleClick: this.getCode
+    }
+  }
+
   handleSubmit = e => {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
@@ -28,10 +38,34 @@ class LessonForm extends React.Component {
     if (!phone) {
       form.validateFields(["phone"], { force: true });
     } else {
+      this.sendCode();
       code({
         mobile: phone
       }).then(res => {});
     }
+  };
+
+  // 定时
+  sendCode = () => {
+    let siv = setInterval(() => {
+      this.setState(
+        {
+          clicked: false,
+          seconds: this.state.seconds - 1,
+          handleClick: null
+        },
+        () => {
+          if (this.state.seconds === 0) {
+            clearInterval(siv);
+            this.setState({
+              clicked: true,
+              seconds: 60,
+              handleClick: this.getCode
+            });
+          }
+        }
+      );
+    }, 1000);
   };
 
   handleChange = (value) => {
@@ -45,6 +79,7 @@ class LessonForm extends React.Component {
       [className]: true,
       [prefix]: true
     });
+    const { seconds, btnText, clicked, handleClick } = this.state;
     return (
       <div className={cls}>
         <div>免费领取</div>
@@ -73,8 +108,10 @@ class LessonForm extends React.Component {
                   className="verification-input"
                   placeholder="请输入验证码"
                 />
-                <span className="verification" onClick={this.getCode}>
-                  获取验证码
+                <span className="verification" onClick={handleClick}>
+                  {
+                    clicked ? btnText : seconds + 's'
+                  }
                 </span>
               </div>
             )}

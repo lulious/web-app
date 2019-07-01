@@ -5,6 +5,7 @@ import DetailView from "./DetailView";
 import { getScrollTop, getWindowHeight, getScrollHeight } from "utils/util";
 import videojs from 'video.js';
 import 'video.js/dist/video-js.css'
+import {getWorkDetail, addComment, getComments} from 'services/query';
 
 class DetailPage extends React.Component {
   constructor(props) {
@@ -16,7 +17,9 @@ class DetailPage extends React.Component {
       tabIndex: 0,
       filterActive: 0,
       oddLength: 200,
-      text: ''
+      text: '',
+      total: 0,
+      commentList: []
     };
   }
 
@@ -32,8 +35,8 @@ class DetailPage extends React.Component {
     });
   };
 
-  onPageChange = (e) => {
-    console.log(e)
+  onPageChange = (page) => {
+    this.getComments(page);
   }
 
   onTabChange = (index) => {
@@ -48,10 +51,6 @@ class DetailPage extends React.Component {
     })
   }
 
-  getWorkDetail = id => {
-
-  }
-
   checkLength = e => {
     const length = e.target.value.length;
     this.setState({
@@ -60,9 +59,27 @@ class DetailPage extends React.Component {
     })
   }
 
+  getComments = (page) => {
+    const id = parseInt(this.props.match.params.id);
+    getComments(id, page).then((res)=>{
+      console.log(res);
+      this.setState({
+        total: res.data.count,
+        commentList: res.data.results
+      })
+    })
+  }
+
   addComment = () => {
+    const id = parseInt(this.props.match.params.id);
     const text = this.state.text;
     console.log(text);
+    addComment({
+      content: text,
+      video: id
+    }).then(()=>{
+      this.getComments(1);
+    })
     this.setState({
       oddLength: 200,
       text: ''
@@ -114,7 +131,17 @@ class DetailPage extends React.Component {
   }
 
   componentDidMount() {
+    // 初始化视频
     this.initVideo();
+
+    const id = this.props.match.params.id;
+    getWorkDetail(id).then((res)=>{
+      console.log(res)
+    })
+
+    // 获取首页评论
+    this.getComments(1);
+
     document.addEventListener("scroll", e => {
       const top = getScrollTop();
       const wh = getWindowHeight();
@@ -142,6 +169,7 @@ class DetailPage extends React.Component {
         onFilterChange={this.onFilterChange}
         checkLength={this.checkLength}
         addComment={this.addComment}
+        getComments={this.getComments}
       />
     );
   }

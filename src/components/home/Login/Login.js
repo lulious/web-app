@@ -10,7 +10,6 @@ const { TabPane } = Tabs;
 const prefixCls = "component-home-login";
 const Login = props => {
   const { className, handleClose, activeKey } = props;
-  console.log(props);
   const cls = classnames({
     [prefixCls]: true,
     [className]: true

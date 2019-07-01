@@ -17,8 +17,6 @@ import Footer from "components/home/Footer/Footer";
 import CommentItem from "components/discovery/CommentItem/CommentItem";
 import RecommandItem from "components/discovery/RecommandItem/RecommandItem";
 
-
-const prefixCls = "detail-page-container";
 const { TabPane } = Tabs;
 const { TextArea } = Input;
 function itemRender(current, type, originalElement) {
@@ -46,10 +44,13 @@ const DetailView = props => {
     addComment,
     checkLength,
     oddLength,
-    text
+    text,
+    total,
+    commentList
   } = props;
+  console.log(props)
   return (
-    <div className={prefixCls}>
+    <div className="detail-page-container">
       {showLogin ? (
         <Login handleClose={() => setShowLogin(false)} activeKey="login" />
       ) : null}
@@ -146,7 +147,7 @@ const DetailView = props => {
         </div>
         <div className="bottom-container">
           <div className="comment-container">
-            <div className="title">评论（883）</div>
+            <div className="title">评论（{total}）</div>
             <div className="comment-input">
               <img className="user-icon" src={UserIcon} alt="" />
               <div className="textarea-container">
@@ -156,12 +157,18 @@ const DetailView = props => {
               <Button className="button" type="primary" onClick={addComment}>提交评论</Button>
             </div>
             <div className="comment-list">
-              {[1,1,1,1,1,1].map(item => {
+              {commentList.map(item => {
                 return (
-                  <CommentItem name="张小" userIcon={User_01} comments="你这个作品不好耍 我没进去." date="2016-12-03" pickCount="0" replyCount="0" />
+                  <CommentItem name="张小" userIcon={User_01} comments={item.content} date={item.create_at.slice(0,10)} pickCount="0" replyCount="0" />
                 )
               })}
             </div>
+              {
+                total === 0 ? (null): (
+                  <Pagination className="pagination" total={total} itemRender={itemRender} onChange={onPageChange} pageSize={10} />
+                )
+              }
+
           </div>
           <div className="recommand-container">
             <div className="title">推荐作品</div>
