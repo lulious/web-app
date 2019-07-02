@@ -23,6 +23,10 @@ export function getWorkDetail(id){
   return get(`/EduPlat/public_Detail_Class/${id}`);
 }
 
+export function pickWork(id){
+  return get(`/EduPlat/public_addlike/${id}`);
+}
+
 export function getComments(id, page){
   return get(`/comment/`,{
     video: id,

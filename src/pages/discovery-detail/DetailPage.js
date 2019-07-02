@@ -5,7 +5,7 @@ import DetailView from "./DetailView";
 import { getScrollTop, getWindowHeight, getScrollHeight } from "utils/util";
 import videojs from 'video.js';
 import 'video.js/dist/video-js.css'
-import {getWorkDetail, addComment, getComments} from 'services/query';
+import { getWorkDetail, pickWork, addComment, getComments } from 'services/query';
 
 class DetailPage extends React.Component {
   constructor(props) {
@@ -19,7 +19,10 @@ class DetailPage extends React.Component {
       oddLength: 200,
       text: '',
       total: 0,
-      commentList: []
+      commentList: [],
+      workTitle: '',
+      video: '',
+      pickNum: 0
     };
   }
 
@@ -54,14 +57,34 @@ class DetailPage extends React.Component {
   checkLength = e => {
     const length = e.target.value.length;
     this.setState({
-      oddLength: 200-length,
+      oddLength: 200 - length,
       text: e.target.value
+    })
+  }
+
+  getInfo = (id) => {
+    getWorkDetail(id).then(res=>{
+      console.log(res)
+      this.setState({
+        workTitle: res.data.name,
+        video: res.data.video,
+        pickNum: res.data.like_num
+      })
+    })
+  }
+
+  pickWork = (id) => {
+    pickWork(id).then(res=>{
+      console.log(res)
+      this.setState({
+        pickNum: res.data.like_num
+      })
     })
   }
 
   getComments = (page) => {
     const id = parseInt(this.props.match.params.id);
-    getComments(id, page).then((res)=>{
+    getComments(id, page).then((res) => {
       console.log(res);
       this.setState({
         total: res.data.count,
@@ -77,7 +100,7 @@ class DetailPage extends React.Component {
     addComment({
       content: text,
       video: id
-    }).then(()=>{
+    }).then(() => {
       this.getComments(1);
     })
     this.setState({
@@ -99,19 +122,19 @@ class DetailPage extends React.Component {
       inactivityTimeout: false,
       controlBar: { // 设置控制条组件
         //  设置控制条里面组件的相关属性及显示与否
-        'currentTimeDisplay':true,
-        'durationDisplay':true,
-        'remainingTimeDisplay':false,
+        'currentTimeDisplay': true,
+        'durationDisplay': true,
+        'remainingTimeDisplay': false,
         playToggle: true,
         volumePanel: {
           inline: false,
-        },      
+        },
         /* 使用children的形式可以控制每一个控件的位置，以及显示与否 */
         children: [
-          {name: 'playToggle'}, // 播放按钮
-          {name: 'currentTimeDisplay'}, // 当前已播放时间
-          {name: 'progressControl'}, // 播放进度条
-          {name: 'durationDisplay'}, // 总时间
+          { name: 'playToggle' }, // 播放按钮
+          { name: 'currentTimeDisplay' }, // 当前已播放时间
+          { name: 'progressControl' }, // 播放进度条
+          { name: 'durationDisplay' }, // 总时间
           { // 倍数播放
             name: 'playbackRateMenuButton',
             'playbackRates': [0.5, 1, 1.5, 2, 2.5]
@@ -120,14 +143,14 @@ class DetailPage extends React.Component {
             name: 'volumePanel', // 音量控制
             inline: false, // 不使用水平方式
           },
-          {name: 'FullscreenToggle'} // 全屏
+          { name: 'FullscreenToggle' } // 全屏
         ]
       },
       sources: [{
         src: 'https://video.codemao.cn/lesson/boxgkk-L3-rpgyx-dg68gc-V2.0.mp4'
-    }]
-  }, function onPlayerReady(){
-  });
+      }]
+    }, function onPlayerReady() {
+    });
   }
 
   componentDidMount() {
@@ -135,9 +158,7 @@ class DetailPage extends React.Component {
     this.initVideo();
 
     const id = this.props.match.params.id;
-    getWorkDetail(id).then((res)=>{
-      console.log(res)
-    })
+    this.getInfo(id);
 
     // 获取首页评论
     this.getComments(1);
@@ -170,6 +191,7 @@ class DetailPage extends React.Component {
         checkLength={this.checkLength}
         addComment={this.addComment}
         getComments={this.getComments}
+        pickWork={this.pickWork}
       />
     );
   }

@@ -46,7 +46,10 @@ const DetailView = props => {
     oddLength,
     text,
     total,
-    commentList
+    commentList,
+    workTitle,
+    pickNum,
+    pickWork
   } = props;
   console.log(props)
   return (
@@ -72,7 +75,7 @@ const DetailView = props => {
             </div>
             <div className="video-info">
               <div className="info">
-                <div className="title">我爱打飞机</div>
+                <div className="title">{workTitle}</div>
                 <div className="scan-count">
                   <span className="count">834947次浏览</span>
                   <div className="br" />
@@ -81,11 +84,11 @@ const DetailView = props => {
               </div>
               <div className="operation">
                 <div className="pick">
-                  <div className="top">
+                  <div className="top" onClick={pickWork}>
                     <img className="pick-icon" src={PickNone} alt="" />
                     <span>点赞</span>
                   </div>
-                  <div className="count">1123</div>
+                  <div className="count">{pickNum}</div>
                 </div>
                 <div className="collection">
                   <div className="top">
@@ -151,29 +154,29 @@ const DetailView = props => {
             <div className="comment-input">
               <img className="user-icon" src={UserIcon} alt="" />
               <div className="textarea-container">
-              <TextArea className="textarea" rows={3} maxLength="200" value={text} onChange={checkLength} />
-              <div>还可以输入{oddLength}字</div>
+                <TextArea className="textarea" rows={3} maxLength="200" value={text} onChange={checkLength} />
+                <div>还可以输入{oddLength}字</div>
               </div>
               <Button className="button" type="primary" onClick={addComment}>提交评论</Button>
             </div>
             <div className="comment-list">
               {commentList.map(item => {
                 return (
-                  <CommentItem name="张小" userIcon={User_01} comments={item.content} date={item.create_at.slice(0,10)} pickCount="0" replyCount="0" />
+                  <CommentItem name="张小" userIcon={User_01} comments={item.content} date={item.create_at.slice(0, 10)} pickCount="0" replyCount="0" />
                 )
               })}
             </div>
-              {
-                total === 0 ? (null): (
-                  <Pagination className="pagination" total={total} itemRender={itemRender} onChange={onPageChange} pageSize={10} />
-                )
-              }
+            {
+              total === 0 ? (null) : (
+                <Pagination className="pagination" total={total} itemRender={itemRender} onChange={onPageChange} pageSize={10} />
+              )
+            }
 
           </div>
           <div className="recommand-container">
             <div className="title">推荐作品</div>
             <div className="recommand-list">
-              {[1,1,1,1].map(item => {
+              {[1, 1, 1, 1].map(item => {
                 return (
                   <RecommandItem coverImg={Recommand_01} name="智慧小乡村" scan="864k" pick="7886" userIcon={UserIcon} userName="小苹果" />
                 )
