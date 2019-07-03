@@ -35,7 +35,8 @@ const request = (url, method = 'get', data, token = '') => {
     method: method,   // HTTP请求方法，默认为GET
     headers: {        // HTTP的请求头，默认为{}
       'Content-Type': 'application/json',
-      'Authorization': `JWT ${token}`
+      'Authorization': `JWT ${token}`,
+      'X-CSRFTOKEN': token
     },
     credentials: 'include' // 是否携带cookie，默认为omit,不携带; same-origi,同源携带; include,同源跨域都携带
   }: {
@@ -46,7 +47,9 @@ const request = (url, method = 'get', data, token = '') => {
     credentials: 'include'
   }
   if (method === 'get') {
-    url += '?' + parseQuery(data)
+    if(data){
+      url += '?' + parseQuery(data)
+    }
   } else {
     options.body = JSON.stringify(data)
   }

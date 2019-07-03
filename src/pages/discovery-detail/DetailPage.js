@@ -22,7 +22,8 @@ class DetailPage extends React.Component {
       commentList: [],
       workTitle: '',
       video: '',
-      pickNum: 0
+      pickNum: 0,
+      handlePick: this.pickWork
     };
   }
 
@@ -64,7 +65,6 @@ class DetailPage extends React.Component {
 
   getInfo = (id) => {
     getWorkDetail(id).then(res=>{
-      console.log(res)
       this.setState({
         workTitle: res.data.name,
         video: res.data.video,
@@ -73,11 +73,12 @@ class DetailPage extends React.Component {
     })
   }
 
-  pickWork = (id) => {
+  pickWork = () => {
+    const id = this.props.match.params.id;
     pickWork(id).then(res=>{
-      console.log(res)
       this.setState({
-        pickNum: res.data.like_num
+        pickNum: res.data.like_num,
+        handlePick: null
       })
     })
   }
@@ -96,11 +97,11 @@ class DetailPage extends React.Component {
   addComment = () => {
     const id = parseInt(this.props.match.params.id);
     const text = this.state.text;
-    console.log(text);
+    const token = sessionStorage.getItem('token');
     addComment({
       content: text,
       video: id
-    }).then(() => {
+    }, token).then(() => {
       this.getComments(1);
     })
     this.setState({

@@ -34,6 +34,6 @@ export function getComments(id, page){
   });
 }
 
-export function addComment(data){
-  return post('/comment/', data);
+export function addComment(data, token){
+  return post('/comment/', data, token);
 }

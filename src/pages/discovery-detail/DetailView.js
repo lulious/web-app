@@ -49,7 +49,7 @@ const DetailView = props => {
     commentList,
     workTitle,
     pickNum,
-    pickWork
+    handlePick
   } = props;
   console.log(props)
   return (
@@ -84,7 +84,7 @@ const DetailView = props => {
               </div>
               <div className="operation">
                 <div className="pick">
-                  <div className="top" onClick={pickWork}>
+                  <div className="top" onClick={handlePick}>
                     <img className="pick-icon" src={PickNone} alt="" />
                     <span>点赞</span>
                   </div>
@@ -167,7 +167,7 @@ const DetailView = props => {
               })}
             </div>
             {
-              total === 0 ? (null) : (
+              total <= 10 ? (null) : (
                 <Pagination className="pagination" total={total} itemRender={itemRender} onChange={onPageChange} pageSize={10} />
               )
             }
