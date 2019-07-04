@@ -36,7 +36,7 @@ const request = (url, method = 'get', data, token = '') => {
     headers: {        // HTTP的请求头，默认为{}
       'Content-Type': 'application/json',
       'Authorization': `JWT ${token}`,
-      'X-CSRFTOKEN': token
+      // 'X-CSRFTOKEN': token
     },
     credentials: 'include' // 是否携带cookie，默认为omit,不携带; same-origi,同源携带; include,同源跨域都携带
   }: {

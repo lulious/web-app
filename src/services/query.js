@@ -27,11 +27,11 @@ export function pickWork(id){
   return get(`/EduPlat/public_addlike/${id}`);
 }
 
-export function getComments(id, page){
+export function getComments(id, page, token){
   return get(`/comment/`,{
     video: id,
     page:page
-  });
+  }, token);
 }
 
 export function addComment(data, token){

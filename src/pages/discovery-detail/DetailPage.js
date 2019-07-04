@@ -85,7 +85,8 @@ class DetailPage extends React.Component {
 
   getComments = (page) => {
     const id = parseInt(this.props.match.params.id);
-    getComments(id, page).then((res) => {
+    const token = sessionStorage.getItem('token');
+    getComments(id, page, token).then((res) => {
       console.log(res);
       this.setState({
         total: res.data.count,
