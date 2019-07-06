@@ -31,6 +31,7 @@ export default class VideoPage extends React.Component{
 
   render(){
     const  { showLogin, showRegister } = this.state;
+    const token = sessionStorage.getItem('token');
     return (
       <div className={prefixCls}>   
         {showLogin ? <Login handleClose={() => this.setShowLogin(false)} activeKey="login" /> : null}
@@ -43,7 +44,7 @@ export default class VideoPage extends React.Component{
             <img className="apply-icon" src={ApplyIcon} alt="" />
             <span className="blue">课程体验</span>
           </div> 
-          <Upload className="upload" name="logo" action="/EduPlat/3/upload" listType="picture" withCredentials>
+          <Upload className="upload" name="logo" action="http://119.3.234.131:9000/Video/upload" headers={{Authorization: `JWT ${token}`}} name="video" listType="picture" withCredentials>
               <Button>
                 <Icon type="upload" /> 点击上传视频
               </Button>
