@@ -1,0 +1,273 @@
+@prefixCls: university-home-view;
+.@{prefixCls}{
+    .banner-container{
+        width: 100%;
+        .banner{
+            width: 100%;
+        }
+    }
+    >.feature{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 0.18rem;
+        width: 11.46rem;
+        height: 2.4rem;
+        margin: 0 auto;
+        .item{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 1.83rem;
+            .icon{
+                width: 1.04rem;
+                height: 1.04rem;
+            }
+            .title{
+                margin-bottom: 0.1rem;
+            }
+            .info{
+                width: 1.2rem;
+                text-align: center;
+                font-size: 0.14rem;
+                color: #666;
+            }
+        }
+    }
+    .smart-room-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 1.38rem;
+        .banner{
+            width: 10.76rem;
+            margin-bottom: 1rem;
+        }
+        .room-feature{
+            display: flex;
+            align-items: center;
+            .feature{
+                width: 6.43rem;
+                height: 6rem;
+                margin-right: 1.3rem;
+            }
+            .apply{
+                width: 4.63rem;
+                height: 4.6rem;
+            }
+        }
+    }
+    .exam-container{
+        width: 100%;
+        margin: 0.8rem 0;
+        .banner{
+            width: 100%;
+        }
+    }
+    .race-container{
+        display: flex;
+        margin: 0.8rem auto;
+        width: 12.12rem;
+        .race-logo{
+            width: 0.58rem;
+            height: 0.57rem;
+            margin: 0.1rem 0.1rem 0 0;
+        }
+        .race-info{
+            display: flex;
+            flex-direction: column;
+            width: 4.8rem;
+            color: #181818;
+            .title{
+                font-size: 0.24rem;
+                font-weight: 500;
+                margin-bottom: 0.15rem;
+            }
+            .sub-title{
+                font-size: 0.3rem;
+                font-weight: 500;
+                margin-bottom: 0.15rem;
+            }
+            .list{
+                font-size: 0.16rem;
+                .item{
+                    display: flex;
+                    align-items: center;
+                    margin-bottom: 0.15rem;
+                    .point-icon{
+                        width: 0.16rem;
+                        height: 0.16rem;
+                        margin-right: 0.2rem;
+                    }
+                }
+            }
+            .apply-buttons{
+                display: flex;
+                align-items: center;
+                font-size: 0.18rem;
+                color: #fff;
+                margin-top: 0.3rem;
+                .button-1{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 2.2rem;
+                    height: 0.55rem;
+                    background-image: url('../../../public/img-tob/button-1.png');
+                    background-size: 100% 100%;
+                    margin-right: 0.2rem;
+                }
+                .button-2{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 2.2rem;
+                    height: 0.55rem;
+                    background-image: url('../../../public/img-tob/button-2.png');
+                    background-size: 100% 100%;
+                    color: #247dfe;
+                }
+            }
+        }
+        .race-img{
+            width: 6.04rem;
+            height: 4.87rem;
+            margin: 0.1rem 0 0 0.3rem;
+        }
+    }
+    .organization-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 11rem;
+        margin: 0.1rem auto;
+        >.title{
+            font-size: 0.4rem;
+            color: #181818;
+            font-weight: 500;
+            margin-bottom: 0.1rem;
+        }
+        >.sub-title{
+            font-size: 0.18rem;
+            color: #666;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+        .feature-list{
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            width: 12rem;
+            font-size: 0.14rem;
+            .item{
+                display: flex;
+                width: 3.84rem;
+                height: 1.9rem;
+                padding: 0.3rem;
+                .brand-icon, .support-icon, .online-icon{
+                    width: 0.48rem;
+                    height: 0.44rem;
+                }
+                .vision-icon{
+                    width: 0.4rem;
+                    height: 0.39rem;
+                }
+                .hr-icon{
+                    width: 0.4rem;
+                    height: 0.42rem;
+                }
+                .lesson-icon{
+                    width: 0.48rem;
+                    height: 0.42rem;
+                }
+                .operation-icon{
+                    width: 0.39rem;
+                    height: 0.39rem;
+                }
+                .teach-icon{
+                    width: 0.36rem;
+                    height: 0.4rem;
+                }
+                .train-icon{
+                    width: 0.44rem;
+                    height: 0.44rem;
+                }
+                .right{
+                    display: flex;
+                    flex-direction: column;
+                    margin-left: 0.15rem;
+                    color: #666;
+                    font-size: 0.14rem;
+                    .title{
+                        font-size: 0.3rem;
+                        margin-bottom: 0.15rem;
+                    }
+                }
+                &:hover{
+                    box-shadow: 0 0 12px 0 rgba(0,0,0,0.1);
+                }
+            }    
+        }
+    }
+    .school-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        .banner{
+            width: 100%;
+        }
+        .base-banner{
+            width: 11.75rem;
+            margin: 0.5rem 0;
+        }
+    }
+    .news-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0.5rem auto;
+        >.title{
+            font-size: 0.4rem;
+            color: #181818;
+            font-weight: 500;
+            margin-bottom: 0.1rem;
+        }
+        >.sub-title{
+            font-size: 0.18rem;
+            color: #666;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+    }
+    .news-list{
+        display: flex;
+        align-items: center;
+        width: 14rem;
+        .arrow{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 0.36rem;
+            height: 0.6rem;
+            background-image: none;
+            background-color: #4b9bff;
+            color: #fff;
+            font-size: 0.2rem;
+            border-radius: 0.05rem;
+            
+    }
+        .swiper-container{
+            width: 12rem;
+            .swiper-wrapper{
+                width: 12rem;
+            }
+           border-radius: 5px;
+            }
+            .swiper-button-disabled{
+                opacity: 0.5;
+            }
+        }
+       
+   
+}

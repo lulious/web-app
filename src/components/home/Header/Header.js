@@ -1,12 +1,22 @@
 import React from 'react';
 import {connect} from 'dva';
 import { routerRedux } from 'dva/router';
+import { Menu, Dropdown } from 'antd';
 import Logo from 'img/logo.png';
 import User from 'img/user.png';
 import Consult from 'img/consult-icon.png';
 import './Header.less';
 
 const prefixCls = 'components-home-header';
+const menu = (
+  <Menu>
+    <Menu.Item>
+      <a target="_blank" rel="noopener noreferrer" href="/university">
+        前往飞象章鱼学院
+      </a>
+    </Menu.Item>
+  </Menu>
+);
 class Header extends React.Component{
   constructor(props){
     super(props);
@@ -33,7 +43,11 @@ class Header extends React.Component{
             <span className="item">课程</span>
           </div>
           <div className={activeNav===3 ? 'item-container active': 'item-container'} onClick={()=>{goTo('/');setActiveNav({activeNav: 3})}}>
-            <span className="item none_border">更多</span></div>
+            {/* <span className="item none_border">更多</span> */}
+            <Dropdown overlay={menu} trigger={['click']}>
+              <span className="item none_border">更多</span>
+            </Dropdown>
+          </div>
         </div>
         <div className="login-container">
           <img className="user" src={User} alt="" />        

@@ -24,6 +24,7 @@ export default{
   "alias": {
     "components": path.resolve(__dirname, "./src/components"),
     "img": path.resolve(__dirname, "./public/img"),
+    "img-tob": path.resolve(__dirname, "./public/img-tob"),
     "utils": path.resolve(__dirname, "./src/utils"),
     "services": path.resolve(__dirname, "./src/services"),
   },

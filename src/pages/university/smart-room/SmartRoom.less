@@ -1,0 +1,108 @@
+@prefixCls: class-room-page;
+.@{prefixCls}{
+    background-color: #f7f7f7;
+    min-height: 100%;
+    overflow: hidden;
+    >.container{
+        width: 9.5rem;
+        margin: 0.4rem auto 0.7rem;
+        >.title{
+            font-size: 0.34rem;
+            font-weight: 500;
+            margin-bottom: 0.4rem;
+        }
+        .form-container{
+            background-color: #fff;
+            padding: 0.3rem 0.5rem;
+            .form{
+                width: 70%;
+                margin: 0.4rem auto;
+                .verification-container{
+                    display: flex;
+                    justify-content: space-between;
+                    .verification{
+                      display: flex;
+                      justify-content: center;
+                      align-items: center;
+                      width: 1.26rem;
+                      border-radius: 5px;
+                      background-color: #47d4af;
+                      border: none !important;
+                      color: #fff;
+                      margin-left: 0.1rem;
+                    }
+                    .verification-input{
+                      input{
+                        width: 1.8rem;
+                      }
+                    }
+                  }
+                .flex-row{
+                    display: flex;
+                }
+                
+                .submit-button-container{
+                    display: flex;
+                    justify-content: space-around;
+                    width: 4rem;
+                    height: 0.4rem;
+                    margin: 0 auto;
+                    .step-button{
+                        width: 1.6rem;
+                        height: 0.4rem;
+                        background-image: url('../../../../public/img-tob/button-1.png');
+                        background-size: 100% 100%;
+                        border: none !important;
+                        font-size: 0.2rem;
+                        color: #fff;
+                    }
+                    .text{
+                        position: absolute;
+                        left: 50%;
+                        top: 50%;
+                        transform: translate(-50%,-50%);
+                        z-index: 1;
+                    }
+
+                }
+                >.info-container{
+                    display: flex;
+                    justify-content: space-between;
+                    font-size: 0.16rem;
+                    color: #333;
+                    margin-bottom: 0.3rem;
+                    .row{
+                        display: flex;
+                        // width: 1.82rem;
+                        margin-bottom: 0.1rem;
+                        >.title{
+                            display: block;
+                            width: 0.8rem;
+                            text-align: right;
+                            margin-right: 0.2rem;
+                        }
+                        >.text{
+                            font-weight: 500;
+                        }
+                    }
+                   
+                }
+            }
+            .tips{
+                display: flex;
+                flex-direction: column;
+                font-size: 0.14rem;
+                color: #181818;
+                border-top: 1px dashed #dcdcdc; 
+                padding: 0.2rem 0;
+                >.row{
+                    margin-bottom: 0.05rem;
+                }
+                .red{
+                    color: #df0202;
+                }
+            }
+        }
+
+    }
+}

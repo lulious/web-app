@@ -8,7 +8,9 @@ import ApplyPage from './pages/apply/ApplyPage';
 import LessonSystemPage from './pages/lesson-system/LessonPage';
 import PayPage from './pages/pay/PayPage';
 import VideoPage from './pages/video/VideoPage';
-
+import UniversityPage from './pages/university/HomePage';
+import UniversityDetail from  './pages/university/HomeDetail';
+import SmartRoom from './pages/university/smart-room/SmartRoom';
 
 function RouterConfig({ history }) {
   return (
@@ -22,7 +24,9 @@ function RouterConfig({ history }) {
         <Route path="/system" exact component={LessonSystemPage} />
         <Route path="/pay" exact component={PayPage} />
         <Route path="/video" exact component={VideoPage} />
-
+        <Route path="/university" exact component={UniversityPage} />
+        <Route path="/university/detail" exact component={UniversityDetail} />
+        <Route path="/apply-smart-room" exact component={SmartRoom} />
       </Switch>
     </Router>
   );
