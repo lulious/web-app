@@ -2,7 +2,7 @@
 import React from "react";
 import { connect } from "dva";
 import { routerRedux } from "dva/router";
-import Swiper from 'swiper';
+import Swiper from 'swiper/dist/js/swiper';
 import 'swiper/dist/css/swiper.min.css';
 import HomeView from "./HomeView";
 
