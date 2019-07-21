@@ -23,7 +23,7 @@ class SmartRoom extends React.Component {
         super(props);
         this.state = {
             confirmDirty: false,
-            current: 3,
+            current: 0,
             btnText: '获取验证码',
             seconds: 60,
             clicked: true,
