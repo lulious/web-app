@@ -35,7 +35,8 @@ import './HomeView.less';
 
 const prefixCls = 'university-home-view';
 const HomeView = (props) => {
-  const { goToLocation, goToDetail, handleSmartRoom } = props;
+  const { goToLocation, goToDetail, handleSmartRoom, newsList } = props;
+  console.log(newsList)
   return (
     <div className={prefixCls}>
       <Header goToLocation={goToLocation} handleSmartRoom={handleSmartRoom} />
@@ -225,24 +226,15 @@ const HomeView = (props) => {
 
           <div className="swiper-container">
             <div className="swiper-wrapper">
-              <div className="swiper-slide">
-                <NewsCard title="李克强总理部署优化教育经费使用结构和落实义务教育...." content="国务院总理李克强7月30日主持召开国务院常务会议，部署优化教育经费使用结构和落实义务教育教师工资待遇，办好人民满意的教育。 " />
-              </div>
-              <div className="swiper-slide">
-                <NewsCard title="李克强总理部署优化教育经费使用结构和落实义务教育...." content="国务院总理李克强7月30日主持召开国务院常务会议，部署优化教育经费使用结构和落实义务教育教师工资待遇，办好人民满意的教育。 " />
-              </div>
-              <div className="swiper-slide">
-                <NewsCard title="李克强总理部署优化教育经费使用结构和落实义务教育...." content="国务院总理李克强7月30日主持召开国务院常务会议，部署优化教育经费使用结构和落实义务教育教师工资待遇，办好人民满意的教育。 " />
-              </div>
-              <div className="swiper-slide">
-                <NewsCard title="李克强总理部署优化教育经费使用结构和落实义务教育...." content="国务院总理李克强7月30日主持召开国务院常务会议，部署优化教育经费使用结构和落实义务教育教师工资待遇，办好人民满意的教育。 " />
-              </div>
-              <div className="swiper-slide">
-                <NewsCard title="1234...." content="国务院总理李克强7月30日主持召开国务院常务会议，部署优化教育经费使用结构和落实义务教育教师工资待遇，办好人民满意的教育。 " />
-              </div>
-              <div className="swiper-slide">
-                <NewsCard title="123...." content="国务院总理李克强7月30日主持召开国务院常务会议，部署优化教育经费使用结构和落实义务教育教师工资待遇，办好人民满意的教育。 " />
-              </div>
+              {
+                newsList.map((item,index) => {
+                  return (
+                    <div className="swiper-slide" key={index}>
+                      <NewsCard title={item.fields.name} content={item.fields.news_content} coverImg={item.fields.img} />
+                    </div>
+                  )
+                })
+              }
             </div>
           </div>
           <span className="button-next arrow">&gt;</span>

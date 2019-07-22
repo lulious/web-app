@@ -57,7 +57,7 @@ class HomePage extends React.Component {
     this.initSwiper();
     getNews().then(res => {
       this.setState({
-        newsList: res
+        newsList: res.data
       })
     })
   }
@@ -65,6 +65,7 @@ class HomePage extends React.Component {
   render() {
     return (
       <HomeView
+        {...this.state}
         goToLocation={this.goToLocation}
         goToDetail={this.goToDetail}
         handleSmartRoom={this.handleSmartRoom}
