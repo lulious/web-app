@@ -37,3 +37,12 @@ export function getComments(id, page, token){
 export function addComment(data, token){
   return post('/comment/', data, token);
 }
+
+export function getNews(){
+  return get('/news/public_news');
+}
+
+export function applySmartRoom(data){
+  return post('/company/companyinfadd/', data);
+}
+

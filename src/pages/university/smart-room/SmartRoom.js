@@ -11,6 +11,7 @@ import Header from 'components/university/header/Header';
 import Footer from 'components/home/Footer/Footer';
 import './SmartRoom.less';
 import FormItem from "antd/lib/form/FormItem";
+import { applySmartRoom} from 'services/query';
 
 const { Step } = Steps;
 const { Option } = Select;
@@ -142,6 +143,15 @@ class SmartRoom extends React.Component {
         this.setState({
             current: 3
         })
+        const {name,qq,company,residence,type,phone}= this.state.info;
+        applySmartRoom({
+            personname: name,
+            QQnumber: qq,
+            phonenumber: phone,
+            companyname:  company,
+            location: residence,
+            companytype: type
+        });
     }
 
     handleFourthSubmit = (e) => {

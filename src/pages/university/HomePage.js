@@ -5,8 +5,15 @@ import { routerRedux } from "dva/router";
 import Swiper from 'swiper/dist/js/swiper';
 import 'swiper/dist/css/swiper.min.css';
 import HomeView from "./HomeView";
+import {getNews} from 'services/query';
 
 class HomePage extends React.Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      newsList: []
+    }
+  }
 
   goToLocation = (type) => {
     if(type !== 'home'){
@@ -48,6 +55,11 @@ class HomePage extends React.Component {
     console.log(scroll)
     scroll&&this.goToLocation(scroll)
     this.initSwiper();
+    getNews().then(res => {
+      this.setState({
+        newsList: res
+      })
+    })
   }
 
   render() {

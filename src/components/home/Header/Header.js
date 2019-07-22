@@ -8,27 +8,28 @@ import Consult from 'img/consult-icon.png';
 import './Header.less';
 
 const prefixCls = 'components-home-header';
-const menu = (
-  <Menu>
-    <Menu.Item>
-      <a target="_blank" rel="noopener noreferrer" href="/university">
-        前往飞象章鱼学院
-      </a>
-    </Menu.Item>
-  </Menu>
-);
+
 class Header extends React.Component{
   constructor(props){
     super(props);
   }
 
-  goToCreate = () => {
-    this.props.goTo('/lesson')
+  goToUniversity = () => {
+    console.log(1)
+    this.props.goTo('/university')
   }
-
 
   render(){
     const { setShowLogin, setShowRegister, goTo,setActiveNav, activeNav} = this.props;
+    const menu = (
+      <Menu>
+        <Menu.Item>
+          <div onClick={this.goToUniversity}>
+            前往飞象章鱼学院
+          </div>
+        </Menu.Item>
+      </Menu>
+    );
     return (
       <div className={prefixCls}>
         <div className="logo-container">
@@ -42,9 +43,9 @@ class Header extends React.Component{
           <div className={activeNav===2 ? 'item-container active': 'item-container'} onClick={()=>{goTo('/system');setActiveNav({activeNav: 2})}}>
             <span className="item">课程</span>
           </div>
-          <div className={activeNav===3 ? 'item-container active': 'item-container'} onClick={()=>{goTo('/');setActiveNav({activeNav: 3})}}>
+          <div className={activeNav===3 ? 'item-container active': 'item-container'} onClick={()=>setActiveNav({activeNav: 3})}>
             {/* <span className="item none_border">更多</span> */}
-            <Dropdown overlay={menu} trigger={['click']}>
+            <Dropdown overlay={menu} trigger={['hover']}>
               <span className="item none_border">更多</span>
             </Dropdown>
           </div>
